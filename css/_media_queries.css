@@ -1,0 +1,50 @@
+/* 
+-------------------
+19. Media Queries
+-------------------
+
+Content:
+- min-width: 2000px
+- min-width: 1600px
+- max-width: 1150px
+- max-width: 940px
+- max-width: 760px
+- max-width: 670px
+- max-width: 460px
+
+*/
+
+@media (max-width: 700px) {
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    header {
+        background-color: var(--white);
+        min-height: fit-content;
+        min-height: 6rem;
+        background-color: var(--white);
+    }
+    .nav-menu {
+        display: none;
+    }
+    .hamburger_icon {
+        display: block;
+        position: absolute;
+        right: 2%;
+        margin: 0 1rem;
+    }
+    .nav-menu-ul {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    
+    #menu-checkbox:checked ~ .nav-menu {
+        display: block;
+    }
+    #menu-checkbox:checked ~ .hamburger_icon {
+        content: url(/icons/V_hamburger_open.svg);
+    }
+}

@@ -1,0 +1,28 @@
+/* 
+-------------------
+1. Variables 
+-------------------
+*/
+
+:root {
+    --creamwhite: #F9F7F3;
+    --green_light: #7DA87B;
+    --blue_light: #8EB5C2;
+    --black_lighter: #02111B;
+    --black: #000;
+    --white: #fff;
+    --gray: #D3D3D3;
+    --dark_brown: #403D39;  
+
+
+
+
+
+    --blue_darker: #2979B9;
+    --creamwhite: #F9F7F3;
+    --dark_black: #222525;
+    --green_logo_color: #3FA752;
+    --black: #000000;
+    --gray: #ECEBEA;
+    --white: #ffffff;
+}
