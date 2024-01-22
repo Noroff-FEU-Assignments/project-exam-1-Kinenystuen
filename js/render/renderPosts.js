@@ -1,5 +1,6 @@
 
 import { fetchApi } from "../api/fetchApi.js";
+import { clearHTML } from "./clearHTML.js";
 
 {/* <div class="card">
                 <img class="cardImg" src="/images/11666268_10153126519877327_7564176324476347378_n.jpg"
@@ -21,52 +22,45 @@ import { fetchApi } from "../api/fetchApi.js";
             </div> */}
 
 export async function renderPosts(posts) {
-    console.log(posts)
-    
+    //console.log(posts)
 
     const postsContainer = document.querySelector(".postsContainer");
-    postsContainer.innerHTML = "";
+    clearHTML(postsContainer);
     posts.forEach(post => {
 
         const parser = new DOMParser();
         const doc = parser.parseFromString(post.content.rendered, `text/html`);
 
+        //finds the img url inside the "doc" content.rendered then attributes.src.nodeValue
         const images = doc.querySelectorAll('img');
-        console.log(images)
+        const image = images[0].attributes.src.nodeValue;
+        const cardImg = document.createElement(`img`);
 
         const paragraphs = doc.querySelectorAll(`p`);
+        //console.log(paragraphs[0].innerHTML);
+        const paragraph = paragraphs[0].innerHTML;
         //console.log(paragraph)
         
-
-        // Log each paragraph text
-        paragraphs.forEach(paragraph => {
-        console.log(paragraph.innerText);
-        });
-    
-        const parInnerText = paragraphs.innerText;
-        console.log(parInnerText);
-
-
-
         /*Create card div*/
         const cardDiv = document.createElement(`div`);
         cardDiv.className = "card";
 
-        if (post._embedded['wp:featuredmedia']) {
-            const image = document.createElement('img');
-            image.src = post._embedded['wp:featuredmedia'][0].source_url;
-            image.alt = post._embedded['wp:featuredmedia'][0].alt_text;
-            postsContainer.append(image);
+
+        const cardImgLink = document.createElement(`a`);
+        cardImgLink.href = "/";
+        cardImgLink.className = "";
+
+        // if there is a img it will load otherwise give a message that it dosnt exist
+        if (images) {
+            cardImg.className = "cardImg";
+            cardImg.src = image;
+            cardDiv.append(cardImg);
         } else {
             const noImage = document.createElement('p');
             noImage.innerText = 'No image available';
-            postsContainer.append(noImage);
+            noImage.className = "cardImg";
+            cardDiv.append(noImage);
         }
-        const imageUrl = post.source_url;
-        const cardImg = document.createElement(`img`);
-        cardImg.className = "cardImg";
-        cardImg.src = imageUrl;
-        
 
         const cardTextContainer = document.createElement(`div`);
         cardTextContainer.className = "cardTextContainer";
@@ -75,14 +69,28 @@ export async function renderPosts(posts) {
         cardPContainer.className = "cardPContainer";
         
         const cardText = document.createElement(`p`);
-        cardText.className = "cardText";
-        cardText.innerText = post.content.rendered;
-        cardPContainer.appendChild(cardText);
+        if (paragraphs) {
+            cardText.className = "cardText";
+            cardText.innerHTML = paragraph;
+            cardPContainer.appendChild(cardText);
+        }
+        else {
+            const noText = document.createElement(`p`);
+            noText.innerText = `No text available`;
+            noText.className = "cardText";
+            cardPContainer.appendChild(cardText)
+        }
+        
 
         const cardTitle = document.createElement(`h2`);
         cardTitle.innerText = post.title.rendered;
 
-        cardTextContainer.appendChild(cardTitle);
+        const cardTitleLink = document.createElement(`a`);
+        cardTitleLink.href = `/html/blog_post.html?id=${post.id}`;
+        cardTitleLink.className = "";
+        cardTitleLink.appendChild(cardTitle)
+
+        cardTextContainer.appendChild(cardTitleLink);
         cardTextContainer.appendChild(cardPContainer);
 
 

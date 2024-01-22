@@ -39,9 +39,17 @@
         grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
         gap: 3rem 1rem;
     }
-    .gridefit {
+    /* Used for blog posts */
+    .grid600 {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(600px,1fr));
+        gap: 1rem;
+    }
+
+    /* used for sel post site */
+    .grid400 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
         gap: 1rem;
     }
     .gridcenter {

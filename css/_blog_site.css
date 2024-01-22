@@ -1,16 +1,103 @@
-.blog_card {
-
+.selPostContainer {
+    width: 100%;
 }
 
-.blog_card-title {
-    
+.blogCard-img {
+    height: 20rem;
+    width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+    object-position: 50%;
+    min-width: 10rem;
+    min-width: 50%;
+    margin: 0;
 }
-.blog_card-img {
-    
+.blogCard-images {
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+    object-position: 50%;
+    min-width: 10rem;
+    min-width: 50%;
+    margin: 0;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
 }
-.blog_card-textbox {
-    
+.blogCard-images:hover {
+    opacity: 0.9;
 }
-.blog_card-text {
-    
-}
+
+
+/* Modal img */
+/* Styles for the modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    max-width: 80%;
+    max-height: 80%;
+  }
+  
+  /* The Close Button */
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: var(--creamwhite);
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* Styles for the blog images */
+  .blog-image {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+  }
+
+  .blog-image:hover {
+    opacity: 0.7;
+  }
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: var(--graywhite);
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+  /* Add Animation - Zoom in the Modal */
+ .modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
