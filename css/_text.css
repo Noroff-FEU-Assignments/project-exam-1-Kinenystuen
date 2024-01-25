@@ -1,0 +1,8 @@
+h1, h2 {
+    font-family: var(--epilogue);
+}
+
+.fontSize08 {
+    font-size: 0.8rem;
+    font-weight: 400;
+}

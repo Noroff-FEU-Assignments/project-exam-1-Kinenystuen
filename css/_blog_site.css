@@ -1,5 +1,6 @@
 .selPostContainer {
     width: 100%;
+    
 }
 
 .blogCard-img {
@@ -48,8 +49,8 @@
   .modal-content {
     margin: auto;
     display: block;
-    max-width: 80%;
-    max-height: 80%;
+    max-width: 100%;
+    max-height: 100%;
   }
   
   /* The Close Button */
@@ -72,7 +73,7 @@
   
   /* Styles for the blog images */
   .blog-image {
-    width: 200px;
+    width: 100%;
     height: auto;
     cursor: pointer;
   }
@@ -88,7 +89,7 @@
     text-align: center;
     color: var(--graywhite);
     padding: 10px 0;
-    height: 150px;
+    height: fit-content;
   }
   
   /* Add Animation - Zoom in the Modal */

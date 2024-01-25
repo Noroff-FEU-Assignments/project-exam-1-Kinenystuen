@@ -24,55 +24,9 @@
     }
 
 /* Grids */
-    .grid3fit {
-        display: grid;
-        grid-template-columns:repeat(auto-fit, minmax(250px, 1fr));
-        gap: 3rem 1rem;
-    }
-    .gridfit200 {
-        display: grid;
-        grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));
-        gap: 3rem 1rem;
-    }
-    .grid3fill {
-        display: grid;
-        grid-template-columns:repeat(auto-fill, minmax(250px, 1fr));
-        gap: 3rem 1rem;
-    }
-    /* Used for blog posts */
-    .grid600 {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(600px,1fr));
-        gap: 1rem;
-    }
-
-    /* used for sel post site */
+    /* Used for blog posts, and sel post site */
     .grid400 {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
         gap: 1rem;
     }
-    .gridcenter {
-        justify-content: center;
-        align-items: center;
-    }
-
-/* Grids specific */
-    .g_one {
-        grid-column: 1;
-        grid-row: 1;
-    }
-    .g_two {
-        grid-column: 1;
-        grid-row: 2/3;
-    }
-    .g_three {
-        grid-column: 2;
-        grid-row: 1/3;
-    }
-    .g_four {
-        grid-column: 3;
-        grid-row: 1/3;
-        flex: 1;
-    }
-    

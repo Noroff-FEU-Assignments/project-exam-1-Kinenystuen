@@ -7,25 +7,27 @@
     <title>Document</title>
     <link rel="stylesheet" href="/css/style.css">
     <script type="module" src="/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
     <meta name="author" content="Kine Odden Nystuen">
     <meta name="Keywords" content="">
     <meta name="describtion" content="">
-    <link rel="icon" href="" type="image/x-icon">
-
+    <link rel="icon" href="/images/logo_mountain.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header>
         <div class="header">
-            <a href="/index.html">
-                <img src="" alt="Logo of Mountain Life">
+            <a class="logo-area" href="/index.html">
+                <img class="logo_mountain" src="/images/logo_mountain.png" alt="Logo of Mountain Life">
+                <p class="logo-area_title">Mountain Life</p>
             </a>
-            <input type="checkbox" id="menu-checkbox">
-            <label for="menu-checkbox">
-                <span class="hidden_element">Hamburger menu</span>
-                <figure class="hamburger_icon"></figure>
-            </label>
-            <nav class="nav-menu">
+            <button class="hamburger_icon pointer" aria-controls="primary-navigation" aria-expanded="false"></button>
+            <nav class="nav-menu" data-visible="false" >
                 <ul class="nav-menu-ul">
                     <li>
                         <a href="/index.html">Home</a>
@@ -44,31 +46,25 @@
         </div>
     </header>
     <main class="fitPage">
-        <section class="content_wrap">
+        <section class="blogPostsContainer content_wrap">
             <h1>Blog posts:</h1>
-            <div class="postsContainer grid600">
-                <div class="loader"></div>
+            <p class="visibleBlogPosts fontSize08">
+                
+            </p>
+            <div class="postsContainer grid400">
+                <div class="leaderArea">
+                    <div class="loader"></div>
+                </div>
 
             </div>
-            <!-- <div class="card">
-                <img class="cardImg" src="/images/11666268_10153126519877327_7564176324476347378_n.jpg"
-                    alt="Kvittjønnan">
-                <div class="cardTextContainer">
-                    <h2 class="cardHeading">
-                        Kvittjønnan
-                    </h2>
-                    <div class="cardPContainer">
-                        <p class="cardText">
-                            Lorem ipsum dolorLoremLorem ipsum dolorLorem ipsum dolor sit amet, consectetur adipiscing
-                            elit. Proin efficitur erat in nibh molestie, sit amet luctus lectus lacinia. Donec ipsum
-                            elit, viverra laoreet eros non, pulvinar sodales purus. Aliquam ornare ante sed porta
-                            viverra.
-                        </p>
-                    </div>
-                    <a class="readMoreButton" href="/">Read more</a>
+            <div class="postsButtonContainer">
+                <div class="morePostsContainer">
                 </div>
-            </div> -->
+                <div class="lessPostsContainer">
+                </div>
+            </div>
         </section>
+        
     </main>
     <footer class="footer"></footer>
 </body>

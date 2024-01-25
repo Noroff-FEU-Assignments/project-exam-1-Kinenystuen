@@ -1,19 +1,6 @@
-// document.addEventListener('DOMContentLoaded', function () {
-//     // Get all elements with the class 'blog-image'
-//     const blogImages = document.querySelectorAll('.blog-image, .blogCard-img');
-  
-//     // Attach click event listeners to each image
-//     blogImages.forEach(function (image) {
-//       image.addEventListener('click', function () {
-//         const imagePath = image.getAttribute('src');
-//         const imageAlt = image.hasAttribute('alt') ? image.getAttribute('alt') : '';
-//         openModal(imagePath, imageAlt);
-//       });
-//     });
-//   });
-  
-let modal;
-export function openModal(imageSrc, imageAlt) {
+
+let modal = "";
+export async function openModal(imageSrc, imageAlt) {
     modal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
     const captionText = document.getElementById(`caption`);
@@ -33,13 +20,14 @@ export function openModal(imageSrc, imageAlt) {
   }
   
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+let span = document.querySelector(".close");
 
 // When the user clicks on <span> (x), close the modal
-    span.addEventListener(`click`, function () {
-        modal.style.display = "none"
-    });
-
+if (span) {
+  span.addEventListener("click", function () {
+    modal.style.display = "none"
+});
+} 
   window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";

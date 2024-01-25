@@ -1,0 +1,45 @@
+
+button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    cursor: pointer;
+    
+    border-radius: 6px;
+    padding: 0.6rem;
+    margin: 0.5rem;
+    font-weight: 600;
+
+    background-color: var(--green_light);
+    border: 1px solid var(--green_light);
+    text-transform: uppercase;
+}
+button:hover {
+    background-color: var(--white);
+    border: 1px solid var(--green_light);
+    color: var(--black);
+}
+
+/* css for loading more posts at blog posts site */
+.postsButtonContainer, .buttonContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0 3rem;
+}
+.morePostsContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.morePostsButton, .lessPostsButton {
+    color: var(--black);
+    background-color: var(--gray);
+    text-transform: uppercase;
+    background-color: var(--white);
+}
+.morePostsButton:hover, .lessPostsButton:hover {
+    background-color: var(--green_light);
+    color: var(--black);
+}

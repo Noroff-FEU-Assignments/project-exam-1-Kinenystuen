@@ -1,5 +1,9 @@
 
-
+.blogPostsContainer {
+    margin-bottom: 4rem;
+    
+    position: relative;
+}
 
 .card {
     display: flex;
@@ -8,8 +12,9 @@
     background-color: var(--white);
     border-radius: 6px;
     margin: 1rem 0;
-    position: relative;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.10);
+    justify-content: center;
+    align-content: center;
 }
 .cardImg {
     object-fit: cover;
@@ -27,15 +32,14 @@
     margin: 0rem 1rem ;
     display: flex;
     flex-direction: column;
-    width: 45%;
 }
 .cardPContainer {
     display: block;
     margin: 0;
-    height: 13rem;
+    height: 15.5rem;
     width: 100%;
     display: -webkit-box;
-    -webkit-line-clamp: 9; /* Set the desired number of lines before truncation */
+    -webkit-line-clamp: 11; /* Set the desired number of lines before truncation */
     -webkit-box-orient: vertical;
     overflow: hidden;
     margin: 0;
@@ -61,4 +65,7 @@
 
 .cardLink {
     color: var(--black);
+}
+.cardLink h2 {
+    margin-bottom: 0rem;
 }

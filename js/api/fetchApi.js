@@ -1,23 +1,23 @@
-import { renderPosts } from "../render/renderPosts.js";
+import { displayPosts, showMorePosts } from "../display/displayPosts.js"; 
+import { displayCarousel } from "../display/displaycarousel.js";
 
 
-const baseUrl = "https://www.kineon.no";
-const blogPosts = `/wp-json/wp/v2/posts`
-const _embed = `&_embed=1`;
-const _embedNoPosts = `?_embed=1`
+const baseUrl = "https://www.kineon.no/wp-json/wp/v2/posts";
 
-const fullURL = baseUrl + blogPosts;
+export let totalPosts;
 
-export async function fetchApi() {
+export async function fetchApi(url) {
     try {
-        const response = await fetch(fullURL);
+        const response = await fetch(url);
         if(!response.ok) {
             throw new Error(`API request failed with status: `+ response.status)
         }
         const posts = await response.json();
+        totalPosts = response.headers.get('X-WP-Total');
         console.log(posts);
-
-        renderPosts(posts);
+        
+        displayPosts(posts);
+        displayCarousel(posts);
         return posts;
     }
     catch (error) {
@@ -26,4 +26,4 @@ export async function fetchApi() {
 
 }
 
-fetchApi();
+fetchApi(baseUrl);

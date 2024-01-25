@@ -7,31 +7,33 @@
     <title>Mountain Life | Home</title>
     <link rel="stylesheet" href="/css/style.css">
     <script type="module" src="/js/index.js"></script>
+    <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
     <meta name="author" content="Kine Odden Nystuen">
     <meta name="Keywords" content="">
     <meta name="describtion" content="">
-    <link rel="icon" href="" type="image/x-icon">
-
+    <link rel="icon" href="/images/logo_mountain.png" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
     <header>
         <div class="header">
-            <a href="/">
-                <img src="" alt="Logo of Mountain Life">
+            <a class="logo-area" href="/">
+                <img class="logo_mountain" src="/images/logo_mountain.png" alt="Logo of Mountain Life">
+                <p class="logo-area_title">Mountain Life</p>
             </a>
-            <input type="checkbox" id="menu-checkbox">
-            <label for="menu-checkbox">
-                <span class="hidden_element">Hamburger menu</span>
-                <figure class="hamburger_icon"></figure>
-            </label>
-            <nav class="nav-menu">
+            <button class="hamburger_icon pointer" aria-controls="primary-navigation" aria-expanded="false"></button>
+            <nav class="nav-menu" data-visible="false" >
                 <ul class="nav-menu-ul">
                     <li>
-                        <a class="active-page" href="/">Home</a>
+                        <a class="nav-menu_a active-page" href="/">Home</a>
                     </li>
                     <li>
-                        <a href="/html/blog_posts.html">Blog posts</a>
+                        <a class="nav-menu_a" href="/html/blog_posts.html">Blog posts</a>
                     </li>
                     <li>
                         <a href="/html/contact_us.html">Contact</a>
@@ -43,11 +45,36 @@
             </nav>
         </div>
     </header>
-    <main class="fitPage">
-        <h1>This is a blog</h1>
+    <main class="fitPage ">
+        <div class="headerContainer">
+            <img class="headerImg" src="/images/IMG_0576.JPG" alt="Header image">
+            <div class="floating">
+
+                <h1 class="headerTitle">Explore Kvitdalen</h1>
+            </div>
+        </div>
+        <div class="content_wrap">
+            <h1>Latest posts</h1>
+            <div class="carouselContainer">
+                <div class="leaderArea">
+                    <div class="loader"></div>
+                </div>
+            </div>
+            <div class="buttonContainer">
+                <a href="/html/blog_posts.html"><button>See all posts</button></a>
+            </div>
+        </div>
+        <div class="map-lines">
+
+        </div>
     </main>
     <footer class="footer">
-
+        <div class="flexcenter">
+            <a href="/">
+                <img class="logo_mountain" src="/images/logo_mountain.png" alt="Logo of Mountain Life">
+            </a>
+            <p>Copyright © 2024 | Kine Odden Nystuen</p>
+        </div>
     </footer>
 </body>
 

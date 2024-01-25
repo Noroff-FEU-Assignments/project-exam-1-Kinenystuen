@@ -1,4 +1,4 @@
-import { displaySelProduct } from "../render/renderSelPost.js"; 
+import { displaySelProduct } from "../display/displaySelPost.js";
 
 // Finds the id in the queryString
 const queryString = document.location.search;

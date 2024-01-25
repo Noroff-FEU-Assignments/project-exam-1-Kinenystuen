@@ -14,37 +14,111 @@ Content:
 
 */
 
-@media (max-width: 700px) {
+@media (max-width: 800px) {
     .header {
+        background-color: var(--creamwhite);
+        min-height: fit-content;
+        min-height: 6rem;
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: flex-start;
-    }
-    header {
-        background-color: var(--white);
-        min-height: fit-content;
-        min-height: 6rem;
-        background-color: var(--white);
+        margin: 0rem;
     }
     .nav-menu {
         display: none;
+        background-color: var(--white);
+        width: 100%;
+        margin: 0;
     }
     .hamburger_icon {
         display: block;
         position: absolute;
-        right: 2%;
-        margin: 0 1rem;
+        top: 0%;
+        padding: 1rem;
+        right: 10%;
+        margin: 1.8rem 0.2rem;
+
     }
     .nav-menu-ul {
         flex-direction: column;
         width: 100%;
     }
-
-    
-    #menu-checkbox:checked ~ .nav-menu {
-        display: block;
+    .nav-menu-ul li, .nav-menu_a {
+        width: 100%;
     }
-    #menu-checkbox:checked ~ .hamburger_icon {
-        content: url(/icons/V_hamburger_open.svg);
+
+    /* When hamburger-icon is clicked nav-menu opens and hamburgermenu changes icon*/
+    .nav-menu[data-visible="true"] {
+        display: flex;
+    }
+    .hamburger_icon[aria-expanded="true"] {
+        background-image: url(/icons/V_hamburger_open.svg);
+        
+    }
+}
+
+@media (max-width: 500px) {
+    .logo-area_title {
+        display: none;
+    }
+
+    /* post card change */
+    .blogPostsContainer {
+        margin-bottom: 0rem;
+        position: relative;
+    }
+    
+    .card {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        min-height: 24rem;
+        height: fit-content;
+        
+        justify-content: start;
+        align-items: start;
+    }
+    .cardImg {
+        object-fit: cover;
+        object-position: 50%;
+        width: 100%;
+
+        height: fit-content;
+        max-height: 10rem;
+        margin: 0;
+        flex: 1;
+        border-radius: 6px 6px 0 0  ;
+    }
+    .cardHeading {
+        margin: 0.2rem 0;
+    }
+    .cardTextContainer {
+        margin: 0rem 1rem ;
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        height: fit-content;
+    }
+    .cardPContainer {
+        display: block;
+        margin: 0;
+        height: fit-content;
+        width: 100%;
+        display: -webkit-box;
+        -webkit-line-clamp: 6; /* Set the desired number of lines before truncation */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        margin: 0;
+      }
+    .cardText {
+        width: 100%;
+    }
+    .grid400 {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 1rem;
     }
 }
