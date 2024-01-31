@@ -1,8 +1,16 @@
+/* 
+
+footer 
+
+*/
+
 .footer {
     height: 10rem;
     background-color: var(--creamwhite);
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0px 4px 4px 0px rgba(168, 179, 168, 0.1);
+    padding: 3rem 0;
 }
 

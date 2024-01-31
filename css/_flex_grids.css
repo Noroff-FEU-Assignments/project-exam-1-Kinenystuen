@@ -5,17 +5,12 @@
 */
 
 /* Flex */
-    .flex_spacebetween {
+    /* .flex_spacebetween {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 95%;
-    }
-    .flexwrap { /*used for explore section in visit us page */
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
+    } */
     .flexcenter {
         display: flex;
         flex-direction: column;
@@ -30,3 +25,25 @@
         grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
         gap: 1rem;
     }
+
+
+    /* CSS for Gallery Grid */
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 16px;
+     }
+  
+    /* CSS for Gallery Image */
+    .blogCard-images {
+        width: 100%;
+        height: auto;
+        cursor: pointer;
+        border-radius: 8px;
+        transition: transform 0.3s ease-in-out;
+}
+    
+    .blogCard-images:hover {
+        transform: scale(1.02);
+    }
+  

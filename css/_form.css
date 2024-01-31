@@ -1,0 +1,78 @@
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
+.contactForm {
+    margin: 0;
+}
+
+.formFill {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem 0;
+}
+.formFill-error {
+    border: 2px solid var(--red_dark);
+    border-radius: 6px;
+    padding: 0.5rem;
+}
+#name-error, #email-error, #subject-error, #message-error {
+    margin:  0.5rem 0rem  0rem  0.2rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--red_dark);
+}
+.formError {
+    display: none;
+}
+
+.validIcon-name, .validIcon-email, .validIcon-subject, .validIcon-message {
+    display: none;
+}
+
+.validIcon-name[data-visible="true"], .validIcon-email[data-visible="true"], .validIcon-subject[data-visible="true"], .validIcon-message[data-visible="true"] {
+    display: inline-block;
+}
+/* 
+.validIcon-email[data-visible="true"] {
+    display: inline-block;
+    
+} */
+
+.form-input {   
+    padding: 0.3rem 0.7rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border: 2px solid var(--gray);
+    border-radius: 6px;
+}
+.form-label {
+    margin-bottom: 0.5rem;
+}
+
+.instruction {
+    font-size: 0.8rem;
+}
+
+.sendMessageContainer {
+    display: none;
+    padding: 1rem;
+    margin-top: 1rem;
+    background-color: var(--white);
+    border-radius: 6px;
+}
+
+/* loader */
+.overlay {
+    background: rgba(217, 217, 217, 0.50);
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}

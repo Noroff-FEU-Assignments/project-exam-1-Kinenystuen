@@ -11,6 +11,7 @@
 @import url(/css/_buttons.css);
 @import url(/css/_text.css);
 @import url(/css/_carousel.css);
+@import url(/css/_form.css);
 
 /* media queries import has to be at the bottom to work */
 @import url(/css/_media_queries.css);

@@ -1,6 +1,7 @@
 
 import { fetchApi, totalPosts } from "../api/fetchApi.js";
 import { clearHTML } from "../render/clearHTML.js";
+import { loaderArea } from "../render/loader.js";
 
 const baseUrl = "https://www.kineon.no/wp-json/wp/v2/posts";
 
@@ -130,6 +131,8 @@ export async function showMorePosts(){
     }
 
     morePostsButton.onclick = async function() {
+        morePostsContainer.appendChild(loaderArea);
+        loaderArea.style.display = "block";
         
         if (loadedPostsLength < totalPosts) {
             loadedPostsLength += 5;
@@ -141,10 +144,10 @@ export async function showMorePosts(){
 }
 }
 
-
 let lessPostsButton;
 export async function showLessPosts(){
     const lessPostsContainer = document.querySelector(`.lessPostsContainer`);
+    const morePostsContainer = document.querySelector(`.morePostsContainer`);
     clearHTML(lessPostsContainer);
 
     const lessPostDiv = document.createElement(`div`);
@@ -161,7 +164,8 @@ export async function showLessPosts(){
 
 
     lessPostsButton.onclick = async function(event) {
-        console.log("clicked")
+        morePostsContainer.appendChild(loaderArea);
+        loaderArea.style.display = "block";
         if (loadedPostsLength === 10) {
             lessPostsButton.style.display = `none`;
         }

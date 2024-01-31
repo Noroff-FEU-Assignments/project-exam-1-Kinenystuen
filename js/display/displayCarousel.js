@@ -98,3 +98,4 @@ export async function displayCarousel(posts) {
 fetchApi(/* Your API URL here */)
     .then(posts => displayCarousel(posts))
     .catch(error => console.error(error));
+

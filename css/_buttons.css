@@ -22,6 +22,9 @@ button:hover {
 }
 
 /* css for loading more posts at blog posts site */
+.postsButtonContainer {
+    position: relative;
+}
 .postsButtonContainer, .buttonContainer {
     display: flex;
     justify-content: center;
@@ -33,7 +36,7 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
-.morePostsButton, .lessPostsButton {
+/* .morePostsButton, .lessPostsButton {
     color: var(--black);
     background-color: var(--gray);
     text-transform: uppercase;
@@ -42,4 +45,4 @@ button:hover {
 .morePostsButton:hover, .lessPostsButton:hover {
     background-color: var(--green_light);
     color: var(--black);
-}
+} */

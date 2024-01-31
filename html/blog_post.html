@@ -44,13 +44,19 @@
         </div>
     </header>
     <main class="fitPage">
-        <button class="goBackButton" type="button" onclick="history.back()">
-            <i class="fa-solid fa-arrow-left custom-icon-size"></i>
-            <span class="goBackButtonText">Go back</span>
-        </button>
+        <div class="content_wrap content_wrap">
+            <button class="goBackButton" type="button" onclick="history.back()">
+                <i class="fa-solid fa-arrow-left custom-icon-size"></i>
+                <span class="goBackButtonText">Go back</span>
+            </button>
+        </div>
         <section class="content_wrap">
             <h1 class="h1Post">Blog post:</h1>
-            <div class="selPostContainer"></div>
+            <div class="selPostContainer">
+                <div class="leaderArea">
+                    <div class="loader"></div>
+                </div>
+            </div>
         </section>
         <div id="imageModal" class="modal">
             <span class="close">&times;</span>
@@ -59,6 +65,13 @@
         </div>
         
     </main>
-    <footer class="footer"></footer>
+    <footer class="footer">
+        <div class="flexcenter">
+            <a href="/index.html">
+                <img class="logo_mountain" src="/images/logo_mountain.png" alt="Logo of Mountain Life">
+            </a>
+            <p>Copyright © 2024 | Kine Odden Nystuen</p>
+        </div>
+    </footer>
 </body>
 </html>

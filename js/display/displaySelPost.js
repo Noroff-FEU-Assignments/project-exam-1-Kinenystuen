@@ -42,14 +42,13 @@ export function displaySelProduct(post) {
     openModal(imagePath, imageAlt);
   });
 
-  postImg1.appendChild(img1); // Append img to figure
-  postImg1.appendChild(caption1); // Append caption to figure
-  cardDiv.appendChild(postImg1); // Append figure to the cardDiv
+  postImg1.appendChild(img1); 
+  postImg1.appendChild(caption1);
+  cardDiv.appendChild(postImg1); 
 
   // Fetching paragraphs for content.rendered html and displaying each of them
   let postPar;
   paragraphs.forEach(function (paragraph) {
-    //console.log(paragraph);
     postPar = document.createElement(`p`);
     const paragraphText = paragraph.innerText;
     postPar.className = "";
@@ -58,13 +57,16 @@ export function displaySelProduct(post) {
   });
 
   // Create a div area just for images
+  const imagesContainer = document.createElement(`div`);
   const imagesDiv = document.createElement(`div`);
-  imagesDiv.className = "";
+  imagesDiv.id = "imagesDiv";
+  imagesDiv.className = "gallery-grid";
 
   // Title for img area
   const imagesTitle = document.createElement(`h3`);
   imagesTitle.innerText = `Images:`;
   imagesTitle.className = "";
+  imagesContainer.appendChild(imagesTitle);
 
   // Fetches the images in the content.rendered object and "jumps" over the first img as this is already displayed
   let postImg;
@@ -76,7 +78,7 @@ export function displaySelProduct(post) {
       return; // Skip the first image
     }
 
-    imagesDiv.appendChild(imagesTitle);
+    
     postImg = document.createElement("img");
     const imgSrc = image.attributes.src.nodeValue;
     postImg.className = "blogCard-images";
@@ -88,6 +90,7 @@ export function displaySelProduct(post) {
     });
 
     imagesDiv.appendChild(postImg);
+    imagesContainer.appendChild(imagesDiv);
   });
 
   // Create blog title
@@ -95,5 +98,5 @@ export function displaySelProduct(post) {
   h1Post.innerHTML = `Blog post: ${post.title.rendered}`;
 
   selPostContainer.appendChild(cardDiv);
-  selPostContainer.appendChild(imagesDiv);
+  selPostContainer.appendChild(imagesContainer);
 }

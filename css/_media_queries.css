@@ -47,6 +47,10 @@ Content:
     .nav-menu-ul li, .nav-menu_a {
         width: 100%;
     }
+    .nav-menu-ul li a {
+        color: var(--black_lighter);
+        padding: 0.3rem 0.6rem;
+    }
 
     /* When hamburger-icon is clicked nav-menu opens and hamburgermenu changes icon*/
     .nav-menu[data-visible="true"] {
