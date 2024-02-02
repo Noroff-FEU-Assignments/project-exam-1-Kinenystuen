@@ -21,7 +21,7 @@
 
 <body>
     <header>
-        <div class="header content_wrap">
+        <div class="header">
             <a class="logo-area" href="/index.html">
                 <img class="logo_mountain" src="/images/logo_mountain.png" alt="Logo of Mountain Life">
                 <p class="logo-area_title">Mountain Life</p>
@@ -50,21 +50,20 @@
             <h1>Contact me</h1>
             <div class="formContainer">
                 <form action="#" method="post" class="contactForm" id="contactForm">
-                    <fieldset control-id="controlID-2">
+                    <fieldset>
                         <legend>
                             <h3>Send me an e-mail</h3>
                         </legend>
                         <div class="formFill formFill-name">
                             <label class="form-label" for="name">
                                 <span>Full name</span>
-                                <span class="instruction">(Minimun 3 characters)</span>
+                                <span class="instruction">(Minimun 5 characters)</span>
                                 <span class="validIcon validIcon-name" data-visible="false">
                                     <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
                                 </span>
                             </label>
-                            <input class="form-input" type="text" id="name" name="name" placeholder="Full name"
-                                control-id="controlID-2">
-                            <div id="name-error" class="formError">Please enter your name. Minimum 3 characters.</div>
+                            <input class="form-input" type="text" id="name" name="name" placeholder="Full name">
+                            <div id="name-error" class="formError">Please enter your name. Minimum 5 characters.</div>
                         </div>
 
                         <div class="formFill formFill-email">
@@ -75,40 +74,37 @@
                                     <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
                                 </span>
                             </label>
-                            <input class="form-input" type="text" id="email" name="email" placeholder="E-mail"
-                                control-id="controlID-3">
+                            <input class="form-input" type="text" id="email" name="email" placeholder="E-mail">
                             <div class="formError" id="email-error">Please enter a valid e-mail.</div>
                         </div>
 
                         <div class="formFill formFill-subject">
                             <label class="form-label" for="subject">
                                 <span>Subject</span>
-                                <span class="instruction">(Minimun 5 characters)</span>
+                                <span class="instruction">(Minimun 15 characters)</span>
                                 <span class="validIcon validIcon-subject" data-visible="false">
                                     <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
                                 </span>
                             </label>
-                            <input class="form-input" type="text" id="subject" name="subject" placeholder="Subject"
-                                control-id="controlID-4">
-                            <div class="formError" id="subject-error">Please enter a subject. More than 5 characters.
+                            <input class="form-input" type="text" id="subject" name="subject" placeholder="Subject">
+                            <div class="formError" id="subject-error">Please enter a subject. More than 15 characters.
                             </div>
                         </div>
 
                         <div class="formFill formFill-message">
                             <label class="form-label" for="message">
                                 <span>Message</span>
-                                <span class="instruction">(Minimun 10 characters)</span>
+                                <span class="instruction">(Minimun 25 characters)</span>
                                 <span class="validIcon validIcon-message" data-visible="false">
                                     <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
                                 </span>
                             </label>
-                            <textarea id="message" name="message" rows="10" placeholder="Type your message.."
-                                control-id="ControlID-5"></textarea>
-                            <div class="formError" id="message-error">Your message must be minimum 10 characters long.
+                            <textarea id="message" name="message" rows="10" placeholder="Type your message.."></textarea>
+                            <div class="formError" id="message-error">Your message must be minimum 25 characters long.
                             </div>
                         </div>
                         <div class="sendButtonArea">
-                            <button class="sendButton" control-id="controlID-6">Send message</button>
+                            <button class="sendButton">Send message</button>
                         </div>
                     </fieldset>
                 </form>

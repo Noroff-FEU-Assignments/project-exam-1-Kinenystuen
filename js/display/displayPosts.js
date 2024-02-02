@@ -32,6 +32,8 @@ export async function displayPosts(posts) {
 
     const postsContainer = document.querySelector(".postsContainer");
     clearHTML(postsContainer);
+    const loaderAreaa = document.querySelector(".leaderArea");
+    clearHTML(loaderAreaa);
     posts.forEach(post => {
 
         const parser = new DOMParser();
@@ -43,18 +45,11 @@ export async function displayPosts(posts) {
         const cardImg = document.createElement(`img`);
 
         const paragraphs = doc.querySelectorAll(`p`);
-        //console.log(paragraphs[0].innerHTML);
         const paragraph = paragraphs[0].innerHTML;
-        //console.log(paragraph)
         
         /*Create card div*/
         const cardDiv = document.createElement(`div`);
         cardDiv.className = "card";
-
-
-        const cardImgLink = document.createElement(`a`);
-        cardImgLink.href = "/";
-        cardImgLink.className = "";
 
         // if there is a img it will load otherwise give a message that it dosnt exist
         if (images) {
@@ -96,9 +91,20 @@ export async function displayPosts(posts) {
         cardTitleLink.className = "cardLink";
         cardTitleLink.appendChild(cardTitle)
 
+        // Create a read button and area to go to selected post
+        const cardLinkDiv = document.createElement("div")
+        cardLinkDiv.className = "cardLinkDiv";
+        const cardLink = document.createElement(`a`);
+        cardLink.href = `/html/blog_post.html?id=${post.id}`;
+        cardLink.className = "cardLink";
+        cardLink.classList.add("readButton");
+        cardLink.innerText = "Read more";    
+        cardLinkDiv.appendChild(cardLink);
+
+
         cardTextContainer.appendChild(cardTitleLink);
         cardTextContainer.appendChild(cardPContainer);
-
+        cardTextContainer.appendChild(cardLinkDiv);
 
         cardDiv.appendChild(cardImg);
         cardDiv.appendChild(cardTextContainer);
@@ -138,7 +144,6 @@ export async function showMorePosts(){
             loadedPostsLength += 5;
             lessPostsButton.style.display = `block`;
         }
-
     const newUrl = baseUrl + `?per_page=${loadedPostsLength}`;
     fetchApi(newUrl);
 }
@@ -177,4 +182,36 @@ export async function showLessPosts(){
     const newUrl = baseUrl + `?per_page=${loadedPostsLength}`;
     fetchApi(newUrl);
 }
+
+const postsContainer = document.querySelector(".postsContainer");
+const baseUrl = "https://www.kineon.no/wp-json/";
+const posts = "wp/v2/posts";
+const embed = "?_embed";
+const categoryDropdown = document.getElementById("category");
+
+categoryDropdown.addEventListener("change", function(event) {
+    let newUrl;
+
+    if (event.target.value === "true") {
+        newUrl = baseUrl + posts + embed + "?categories=true";
+    } else {
+        const catChosen = event.target.value;
+        newUrl = baseUrl + posts + `?categories=${catChosen}`;
+    }
+
+    postsContainer.innerHTML = "";
+    fetchApi(newUrl);
+});
+
+
+const searchInput = document.querySelector("#search-input");
+
+searchInput.onkeyup = function() {
+    const newUrl = baseUrl + posts + `?search=${searchInput.value}`;
+    postsContainer.innerHTML = "";
+    fetchApi(newUrl);
+}
+
+
+
 }  

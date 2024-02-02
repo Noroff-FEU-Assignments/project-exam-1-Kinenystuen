@@ -21,13 +21,13 @@
 
 <body>
     <header>
-        <div class="header content_wrap">
+        <div class="header">
             <a class="logo-area" href="/index.html">
                 <img class="logo_mountain" src="/images/logo_mountain.png" alt="Logo of Mountain Life">
                 <p class="logo-area_title">Mountain Life</p>
             </a>
             <button class="hamburger_icon pointer" aria-controls="primary-navigation" aria-expanded="false"></button>
-            <nav class="nav-menu" data-visible="false" >
+            <nav class="nav-menu" data-visible="false">
                 <ul class="nav-menu-ul">
                     <li>
                         <a href="/index.html">Home</a>
@@ -48,9 +48,29 @@
     <main class="fitPage">
         <section class="blogPostsContainer content_wrap">
             <h1>Blog posts:</h1>
-            <p class="visibleBlogPosts fontSize08">
-                
-            </p>
+            <div class="width100 flex_spacebetween">
+                <p class="visibleBlogPosts fontSize08"></p>
+                <div class="search">
+                    <label class="search-label" for="search-input">Search:</label>
+                    <input class="search-input" type="search" id="search-input" placeholder="Search">
+                    <!--<button class="search-button">Search</button>-->
+                </div>
+                <div class="categoriesDiv">
+                    <label for="category">Select a category:</label>
+                    <select class="select-form" id="category" name="category">
+                        <option class="select-form_option" value="true">All categories</option>
+                        <option class="select-form_option" value="70">Activities</option>
+                        <option class="select-form_option" value="54">Animals</option>
+                        <option class="select-form_option" value="35">Cabins</option>
+                        <option class="select-form_option" value="75">Flora and fauna</option>
+                        <option class="select-form_option" value="71">Mountains</option>
+                        <option class="select-form_option" value="59">Nature</option>
+                        <option class="select-form_option" value="41">Plants</option>
+                        <option class="select-form_option" value="60">Seasons</option>
+                        <option class="select-form_option" value="1">Uncategorized</option>
+                    </select>
+                </div>
+            </div>
             <div class="postsContainer grid400">
                 <div class="leaderArea">
                     <div class="loader"></div>
@@ -64,7 +84,7 @@
                 </div>
             </div>
         </section>
-        
+
     </main>
     <footer class="footer">
         <div class="flexcenter">

@@ -5,12 +5,12 @@
 */
 
 /* Flex */
-    /* .flex_spacebetween {
+    .flex_spacebetween {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 95%;
-    } */
+    }
     .flexcenter {
         display: flex;
         flex-direction: column;

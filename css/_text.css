@@ -6,3 +6,8 @@ h1, h2 {
     font-size: 0.8rem;
     font-weight: 400;
 }
+
+/* width */
+.width100 {
+    width: 100%;
+}

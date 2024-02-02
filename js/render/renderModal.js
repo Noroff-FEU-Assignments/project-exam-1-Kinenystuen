@@ -1,36 +1,42 @@
-
 let modal = "";
 export async function openModal(imageSrc, imageAlt) {
-    modal = document.getElementById('imageModal');
-    const modalImage = document.getElementById('modalImage');
-    const captionText = document.getElementById(`caption`);
-  
-    // checks is there is alt text for the image
-    if (!imageAlt) {
-        imageAlt = `No caption`;
-    }
+  modal = document.getElementById("imageModal");
+  const modalImage = document.getElementById("modalImage");
+  const captionText = document.getElementById(`caption`);
 
-
-    modal.style.display = 'block';
-    modalImage.src = imageSrc;
-    modalImage.alt = 'Image Preview';
-    captionText.innerHTML = imageAlt;
-    console.log(imageAlt);
-    console.log(imageSrc)
+  // checks is there is alt text for the image
+  if (!imageAlt) {
+    //imageAlt = `No caption`;
   }
-  
+
+  modal.style.display = "block";
+  modalImage.src = imageSrc;
+  modalImage.alt = "Image Preview";
+  captionText.innerHTML = imageAlt;
+}
+
+function closeModal() {
+  modal.style.display = "none";
+}
+
 // Get the <span> element that closes the modal
 let span = document.querySelector(".close");
 
 // When the user clicks on <span> (x), close the modal
 if (span) {
   span.addEventListener("click", function () {
-    modal.style.display = "none"
+    closeModal();
+  });
+}
+window.onclick = function (event) {
+  if (event.target === modal) {
+    closeModal();
+  }
+};
+
+// Event listener for keydown event
+document.addEventListener("keydown", function (event) {
+  if (event.key === "Escape" || event.key === "Esc" || event.keyCode === 27) {
+    closeModal();
+  }
 });
-} 
-  window.onclick = function (event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-  };
-  
