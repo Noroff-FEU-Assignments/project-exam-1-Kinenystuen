@@ -151,3 +151,17 @@ p {
 .myLinks {
     display: none;
 }
+
+
+/* Transformation */
+
+.search-icon {
+
+}
+
+.transition-eio {
+    transition: transform 0.3s ease-in-out;
+}
+.transition-eio:hover {
+    transform: scale(1.02);
+}

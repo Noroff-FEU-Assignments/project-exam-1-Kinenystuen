@@ -92,9 +92,9 @@ export async function validateForm(event) {
 
   function ifContactFormValid() {
     if (
-      checkLength(fullName.value, 2) &&
-      checkLength(subjectId.value, 4) &&
-      checkLength(messageId.value, 19) &&
+      checkLength(fullName.value, 4) &&
+      checkLength(subjectId.value, 15) &&
+      checkLength(messageId.value, 25) &&
       validateEmail(email.value)
     ) {
       // Add loader

@@ -33,3 +33,9 @@
     .gap1rem {
         gap: 1rem;
     }
+
+/* height */
+
+.height-fit-content {
+    height: fit-content;  
+}

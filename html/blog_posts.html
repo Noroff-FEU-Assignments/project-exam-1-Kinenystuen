@@ -50,25 +50,26 @@
             <h1>Blog posts:</h1>
             <div class="width100 flex_spacebetween">
                 <p class="visibleBlogPosts fontSize08"></p>
-                <div class="search">
-                    <label class="search-label" for="search-input">Search:</label>
-                    <input class="search-input" type="search" id="search-input" placeholder="Search">
-                    <!--<button class="search-button">Search</button>-->
-                </div>
-                <div class="categoriesDiv">
-                    <label for="category">Select a category:</label>
-                    <select class="select-form" id="category" name="category">
-                        <option class="select-form_option" value="true">All categories</option>
-                        <option class="select-form_option" value="70">Activities</option>
-                        <option class="select-form_option" value="54">Animals</option>
-                        <option class="select-form_option" value="35">Cabins</option>
-                        <option class="select-form_option" value="75">Flora and fauna</option>
-                        <option class="select-form_option" value="71">Mountains</option>
-                        <option class="select-form_option" value="59">Nature</option>
-                        <option class="select-form_option" value="41">Plants</option>
-                        <option class="select-form_option" value="60">Seasons</option>
-                        <option class="select-form_option" value="1">Uncategorized</option>
-                    </select>
+                <div class="flex-end-center">
+                    <div class="search">
+                        <!-- <label class="search-label" for="search-input">Search:</label> -->
+                        <input class="search-input" type="search" id="search-input" placeholder="Search">
+                    </div>
+                    <div class="categoriesDiv">
+                        <!-- <label for="category">Select a category:</label> -->
+                        <select class="select-form" id="category" name="category">
+                            <option class="select-form_option" value="true">All categories</option>
+                            <option class="select-form_option" value="70">Activities</option>
+                            <option class="select-form_option" value="54">Animals</option>
+                            <option class="select-form_option" value="35">Cabins</option>
+                            <option class="select-form_option" value="75">Flora and fauna</option>
+                            <option class="select-form_option" value="71">Mountains</option>
+                            <option class="select-form_option" value="59">Nature</option>
+                            <option class="select-form_option" value="41">Plants</option>
+                            <option class="select-form_option" value="60">Seasons</option>
+                            <option class="select-form_option" value="1">Uncategorized</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <div class="postsContainer grid400">
@@ -87,7 +88,10 @@
 
     </main>
     <footer class="footer">
-        <div class="flexcenter">
+        <div class="footer-imgdiv">
+            <img src="/images/blue_mountains.png" alt="">
+        </div>
+        <div class="flexcenter height-fit-content ">
             <a href="/index.html">
                 <img class="logo_mountain" src="/images/logo_mountain.png" alt="Logo of Mountain Life">
             </a>

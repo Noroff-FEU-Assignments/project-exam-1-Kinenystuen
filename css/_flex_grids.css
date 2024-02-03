@@ -5,45 +5,62 @@
 */
 
 /* Flex */
-    .flex_spacebetween {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 95%;
-    }
-    .flexcenter {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+.flex {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.flex-end-center {
+    display: flex;
+    justify-content: center ;
+    align-items: center;
+}
+
+.flex_spacebetween {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+}
+
+.flexcenter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 
 /* Grids */
-    /* Used for blog posts, and sel post site */
-    .grid400 {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(400px,1fr));
-        gap: 1rem;
-    }
-
-
-    /* CSS for Gallery Grid */
-    .gallery-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-        gap: 16px;
-     }
-  
-    /* CSS for Gallery Image */
-    .blogCard-images {
-        width: 100%;
-        height: auto;
-        cursor: pointer;
-        border-radius: 8px;
-        transition: transform 0.3s ease-in-out;
+/* Used for blog posts, and sel post site */
+.grid400 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1rem;
 }
-    
-    .blogCard-images:hover {
-        transform: scale(1.02);
-    }
-  
+.grid400-fill {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px,1fr));
+    gap: 1rem;
+}
+
+
+/* CSS for Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+/* CSS for Gallery Image */
+.blogCard-images {
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.blogCard-images:hover {
+    transform: scale(1.02);
+}

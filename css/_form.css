@@ -100,13 +100,34 @@
 .select-form_option {
     padding: 1rem;
     margin: 1rem;
+    line-height: 1rem;
 }
 
 .search-input {
-    margin-left: 0;
-    border-radius: 0 6px 6px 0;
+    margin-left: 2%;
+    border-radius: 6px;
     padding-left: 1rem;
+    background-image: url(/icons/magnifying-glass-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 1.2rem;
+    background-position: 98%;
+    width: 2rem;
+    background-color: var(--creamwhite);
+    border-color: var(--creamwhite);
 }
+.search-input:hover {
+    width: 12rem;
+    background-color: var(--white);
+    border: 2px solid var(--green_light);
+}
+/* Increase specificity */
+input.search-input:focus {
+    width: 12rem;
+    background-color: var(--white);
+    outline: 1px solid var(--green_light);
+}
+
+
 .search-label {
     background-color: var(--green_light);
     padding: 0.4rem 0.5rem;
