@@ -5,6 +5,7 @@ header {
     position: relative;
     height: 5rem;
 }
+
 .header {
     display: flex;
     justify-content: space-between;
@@ -22,31 +23,61 @@ header {
 }
 
 .nav-menu-ul {
+    list-style: none;
+    padding: 0;
     display: flex;
     list-style-type: none;
     gap: 0.5rem;
 }
+
 .nav-menu-ul li {
     width: fit-content;
     right: 2%;
-    margin : 1rem 0;
+    margin: 1rem 0;
     font-size: 1.125rem;
     font-weight: 600;
     font-family: "Epilogue", Verdana, Geneva, Tahoma, sans-serif;
     text-transform: uppercase;
 }
-.nav-menu-ul li a {
-    color: var(--black_lighter);
+
+.nav-menu-a {
     padding: 0.3rem 0.6rem;
-}
-.nav-menu-ul li a:hover {
-    color: var(--black);
-    background-color: var(--green_light);
-    border-radius: 6px;
+    text-decoration: none;
+    position: relative;
+    color: var(--black_lighter);
 }
 
-.active-page {
-    border-bottom: 2px solid var(--green_light);
+.nav-menu-a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    bottom: 0;
+    left: 0;
+    background: var(--green_light);
+    transition: width 0.3s ease-in-out;
+}
+
+.nav-menu-a:hover::after {
+    width: 100%;
+}
+
+
+/* Additional styling for the active page */
+.active-page::before {
+    content: "";
+    position: absolute;
+    background: var(--green_light);
+    height: 3px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.nav-menu-a:hover {
+    color: var(--black);
+    /* background-color: var(--green_light); */
+    border-radius: 6px;
 }
 
 .logo-area {
@@ -70,6 +101,7 @@ header {
     z-index: 101;
     border: none;
 }
+
 .hamburger_icon:hover {
     background-color: var(--creamwhite);
     border: none;
@@ -83,19 +115,21 @@ header {
     width: 100%;
     height: 70vh;
     max-height: fit-content;
-    
+
     padding: 1rem 0 2rem;
 }
+
 .headerImg {
     display: flex;
     object-fit: cover;
     opacity: 1;
-    margin: 0 auto ;
+    margin: 0 auto;
     width: 100%;
     height: 100%;
     display: block;
     background-position: 100%;
 }
+
 .floating {
     position: absolute;
     display: flex;
@@ -109,9 +143,11 @@ header {
     margin: 0;
     padding: 10px;
 }
+
 .floating_logo {
     height: 16rem;
 }
+
 .headerTitle {
     font-family: var(--epilogue);
     font-weight: 800;
@@ -122,4 +158,3 @@ header {
     margin: 0;
 
 }
-

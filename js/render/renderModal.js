@@ -1,3 +1,5 @@
+
+
 let modal = "";
 export async function openModal(imageSrc, imageAlt) {
   modal = document.getElementById("imageModal");
@@ -10,6 +12,7 @@ export async function openModal(imageSrc, imageAlt) {
   }
 
   modal.style.display = "block";
+  modal.classList.add("modalActive");
   modalImage.src = imageSrc;
   modalImage.alt = "Image Preview";
   captionText.innerHTML = imageAlt;
@@ -17,6 +20,7 @@ export async function openModal(imageSrc, imageAlt) {
 
 function closeModal() {
   modal.style.display = "none";
+  modal.classList.remove("modalActive");
 }
 
 // Get the <span> element that closes the modal

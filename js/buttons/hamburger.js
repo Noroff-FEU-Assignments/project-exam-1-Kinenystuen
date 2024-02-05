@@ -1,8 +1,11 @@
+/* wudhw */
+
 export async function dropdownMenu() {
   const navMenu = document.querySelector(".nav-menu");
   const hamburgerMenu = document.querySelector(".hamburger_icon");
 
   hamburgerMenu.addEventListener("click", () => {
+    console.log("clicked")
       const visibility = navMenu.getAttribute("data-visible");
       console.log("clicked")
       if (visibility === "false") {

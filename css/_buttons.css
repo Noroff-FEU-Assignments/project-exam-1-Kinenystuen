@@ -36,13 +36,43 @@ button:hover {
     justify-content: center;
     align-items: center;
 }
-/* .morePostsButton, .lessPostsButton {
-    color: var(--black);
-    background-color: var(--gray);
-    text-transform: uppercase;
-    background-color: var(--white);
-}
-.morePostsButton:hover, .lessPostsButton:hover {
+
+
+.button {
+    border: 2px solid var(--green_light);
+    border-radius: 6px;
+    width: fit-content;
+    height: auto;
     background-color: var(--green_light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    transition: 0.8s;
+}
+
+.button_slide-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    background-color: var(--white);
+    transition: 0.8s;
+}
+.button:hover .slide-effect {
+    left: 0;
+}   
+.button-link {
+    position: relative;
+    font-size: 1rem;
+    color: var(--black_lighter);
+    padding: 0.5rem 0.2rem;
+    text-transform: uppercase;
+    transition: 0.8s;
+}
+.button:hover .button-link {
     color: var(--black);
-} */
+
+}

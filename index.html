@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mountain Life | Home</title>
     <link rel="stylesheet" href="/css/style.css">
-    <script type="module" defer src="/js/index.js"></script>
+    <script type="module" src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
     <meta name="author" content="Kine Odden Nystuen">
     <meta name="Keywords" content="">
@@ -17,6 +17,17 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
         rel="stylesheet">
+    <!-- Hotjar Tracking Code for Mountain Life -->
+    <script>
+        (function (h, o, t, j, a, r) {
+            h.hj = h.hj || function () { (h.hj.q = h.hj.q || []).push(arguments) };
+            h._hjSettings = { hjid: 3853504, hjsv: 6 };
+            a = o.getElementsByTagName('head')[0];
+            r = o.createElement('script'); r.async = 1;
+            r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
+            a.appendChild(r);
+        })(window, document, 'https://static.hotjar.com/c/hotjar-', '.js?sv=');
+    </script>
 </head>
 
 <body>
@@ -30,16 +41,16 @@
             <nav class="nav-menu" data-visible="false">
                 <ul class="nav-menu-ul">
                     <li>
-                        <a class="nav-menu_a active-page" href="/">Home</a>
+                        <a class="nav-menu-a active-page" href="/">Home</a>
                     </li>
                     <li>
-                        <a class="nav-menu_a" href="/html/blog_posts.html">Blog posts</a>
+                        <a class="nav-menu-a" href="/html/blog_posts.html">Blog posts</a>
                     </li>
                     <li>
-                        <a href="/html/contact_us.html">Contact</a>
+                        <a class="nav-menu-a" href="/html/contact_us.html">Contact</a>
                     </li>
                     <li>
-                        <a href="/html/about_us.html">About</a>
+                        <a class="nav-menu-a" href="/html/about_us.html">About</a>
                     </li>
                 </ul>
             </nav>
@@ -68,6 +79,11 @@
                 <a href="/html/blog_posts.html"><button>See all posts</button></a>
             </div>
         </section>
+        <button class="test-button">Test button</button>
+        <div class="button">
+            <a class="button-link" href="/html/blog_posts.html">See all posts</a>
+            <div class="button_slide-effect"></div>
+        </div>
 
         <!-- <div class="map-lines">
         </div> -->

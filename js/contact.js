@@ -50,7 +50,7 @@ export async function validateForm(event) {
 
   // Validate input values
   // Name
-  if (checkLength(fullName.value, 2) === true) {
+  if (checkLength(fullName.value, 4) === true) {
     formFillName.classList.remove("formFill-error");
     nameError.classList.add("formError");
     validNameIcon.setAttribute("data-visible", true);
@@ -70,7 +70,7 @@ export async function validateForm(event) {
     validEmailIcon.setAttribute("data-visible", false);
   }
   // Subject
-  if (checkLength(subjectId.value, 4) === true) {
+  if (checkLength(subjectId.value, 14) === true) {
     formFillSubject.classList.remove("formFill-error");
     subjectError.classList.add("formError");
     validSubjectIcon.setAttribute("data-visible", true);
@@ -80,7 +80,7 @@ export async function validateForm(event) {
     validSubjectIcon.setAttribute("data-visible", false);
   }
   // Message
-  if (checkLength(messageId.value, 9) === true) {
+  if (checkLength(messageId.value, 24) === true) {
     formFillMessage.classList.remove("formFill-error");
     messageError.classList.add("formError");
     validMessageIcon.setAttribute("data-visible", true);
@@ -93,11 +93,12 @@ export async function validateForm(event) {
   function ifContactFormValid() {
     if (
       checkLength(fullName.value, 4) &&
-      checkLength(subjectId.value, 15) &&
-      checkLength(messageId.value, 25) &&
+      checkLength(subjectId.value, 14) &&
+      checkLength(messageId.value, 24) &&
       validateEmail(email.value)
     ) {
       // Add loader
+      console.log("clicked")
       sectionContact.appendChild(loaderBackground);
       loader.style.display = "block";
       setTimeout(() => {
@@ -122,6 +123,9 @@ export async function validateForm(event) {
           behavior: "smooth", // Use smooth scrolling
         });
       }, 2000);
+    }
+    else {
+        console.log("something went wrong")
     }
   }
   ifContactFormValid();

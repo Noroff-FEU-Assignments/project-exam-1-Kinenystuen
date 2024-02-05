@@ -11,3 +11,9 @@ h1, h2 {
 .width100 {
     width: 100%;
 }
+
+
+.caption {
+    font-size: 0.8rem;
+    
+}

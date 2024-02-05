@@ -33,6 +33,7 @@ export async function displaySelProduct(post) {
   ) {
     img1.alt = altText.innerText.trim();
     caption1.textContent = altText.innerText.trim();
+    caption1.classList = "caption", "right";
   }
 
   img1.className = "blogCard-img";
@@ -48,7 +49,7 @@ export async function displaySelProduct(post) {
   cardDiv.appendChild(postImg1);
 
   const paragraphDiv = document.createElement("div");
-  paragraphDiv.classList = "grid400-fill", "gridcenter";
+  (paragraphDiv.classList = "grid400-fill"), "gridcenter";
   // Fetching paragraphs for content.rendered html and displaying each of them
   let postPar;
   paragraphs.forEach(function (paragraph) {
@@ -64,18 +65,18 @@ export async function displaySelProduct(post) {
   // Tags and categories
   //
   const tagcatArea = document.createElement("div");
-  tagcatArea.className = "tagcatArea", "flex";
-  
+  (tagcatArea.className = "tagcatArea"), "flex";
+
   // Create div to display categories
   const catArea = document.createElement("div");
-  catArea.className = "catArea", "flex";
+  (catArea.className = "catArea"), "flex";
   // Create p for tags
   const catPTitle = document.createElement("p");
   catPTitle.innerText = "Categories:";
-  catPTitle.className = "catPTitle", "flex";
+  (catPTitle.className = "catPTitle"), "flex";
 
   const catP = document.createElement("a");
-  catP.className = "catP", "flex";
+  (catP.className = "catP"), "flex";
 
   // Fetching categories
   // Assuming you have fetched a post and have its details in the postDetails variable
@@ -109,14 +110,14 @@ export async function displaySelProduct(post) {
 
   // Create div to display tags and categories
   const tagArea = document.createElement("div");
-  tagArea.className = "catArea", "flex";
+  (tagArea.className = "catArea"), "flex";
   // Create p for tags
   const tagPTitle = document.createElement("p");
   tagPTitle.innerText = "Tags:";
-  tagPTitle.className = "catPTitle", "flex";
+  (tagPTitle.className = "catPTitle"), "flex";
 
   const tagP = document.createElement("a");
-  tagP.className = "catP", "flex";
+  (tagP.className = "catP"), "flex";
 
   // Fetching categories
   // Assuming you have fetched a post and have its details in the postDetails variable
@@ -137,7 +138,7 @@ export async function displaySelProduct(post) {
   console.log(tagsNames);
   tagsNames.forEach(function (tags) {
     const tagLinks = document.createElement("a");
-    tagLinks.className = "catLinks";
+    tagLinks.className = "flex";
     tagLinks.innerHTML = tags.name + `,`;
     tagLinks.id = tags.id;
     tagP.appendChild(tagLinks);
@@ -217,32 +218,44 @@ export async function displaySelProduct(post) {
   // Create touch event listener for swiping between images
   let startX;
   let endX;
-
-  document.addEventListener("touchstart", function (event) {
-    startX = event.touches[0].clientX;
-    console.log("touch start");
-  });
-
-  document.addEventListener("touchmove", function (event) {
-    endX = event.touches[0].clientX;
-    console.log("touch move");
-  });
-
-  document.addEventListener("touchend", function (event) {
-    const threshold = 20; // fingermove length
-
-    // Using changedTouches to get touch information
-    const touchEndX = event.changedTouches[0].clientX;
-
-    if (startX - touchEndX > threshold) {
-      // Swiped left
-      nextImage();
-    } else if (touchEndX - startX > threshold) {
-      // Swiped right
-      prevImage();
+  
+  let modalImage = document.getElementById("imageModal");
+  
+  function swipetouch() {
+    if (modalImage.classList.contains("modalActive")) {
+      console.log("opensii")
     }
-    console.log("touch end");
-  });
+  }
+  swipetouch();
+  
+
+  if (getComputedStyle(imageModal).display === "block") {
+    console.log("open");
+    document.addEventListener("touchstart", function (event) {
+      startX = event.touches[0].clientX;
+      console.log("touch start");
+    });
+
+    document.addEventListener("touchmove", function (event) {
+      endX = event.touches[0].clientX;
+      console.log("touch move");
+    });
+    document.addEventListener("touchend", function (event) {
+      const threshold = 20; // fingermove length
+
+      // Using changedTouches to get touch information
+      const touchEndX = event.changedTouches[0].clientX;
+
+      if (startX - touchEndX > threshold) {
+        // Swiped left
+        nextImage();
+      } else if (touchEndX - startX > threshold) {
+        // Swiped right
+        prevImage();
+      }
+      console.log("touch end");
+    });
+  }
 
   // Checking if there is any images to display, if so add title "images"
   if (hasImages) {
