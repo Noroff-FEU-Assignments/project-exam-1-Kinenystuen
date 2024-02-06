@@ -4,17 +4,18 @@ footer
 
 */
 footer {
+    position: relative;
     background-color: var(--gray_darker);
     gap: 0;
     margin: 0;
     padding: 0;
+    z-index: 10;
     
 }
 .footer {
     height: 13rem;
     background-color: var(--gray_darker);
     box-shadow: 0px 4px 4px 0px rgba(168, 179, 168, 0.1);
-    margin-top: 5rem;
 }
 .footer p {
     margin: 0;
@@ -26,6 +27,7 @@ footer {
     height: max-content;
     margin: 0;
     padding: 0;
+    z-index: 10;
 }
 .footer-imgdiv img {
     display: block;

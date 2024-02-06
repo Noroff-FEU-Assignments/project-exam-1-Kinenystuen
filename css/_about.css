@@ -3,5 +3,5 @@
 
 .sectionAbout {
     background: var(white) 0.2;
-    height: 100svh;
+    position: relative;
 }

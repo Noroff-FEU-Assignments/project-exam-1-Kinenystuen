@@ -8,13 +8,5 @@ import { openModal } from "./render/renderModal.js";
 
 import { validateForm } from "./contact.js";
 
-
-
-// function menuButton() {
-//     const button = document.getElementById("menuButton");
-
-//     button.addEventListener("click", function() {
-//         console.log("this is clicked")
-//     })
-// }
-// menuButton();
+// functions for scroll events
+import { scrollIn, scrollOut100, scrollOut600, scrollheader } from "./render/scroll.js";

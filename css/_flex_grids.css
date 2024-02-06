@@ -33,6 +33,11 @@
 
 /* Grids */
 /* Used for blog posts, and sel post site */
+.grid200 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
 .grid400 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));

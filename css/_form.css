@@ -125,6 +125,7 @@ input.search-input:focus {
     width: 12rem;
     background-color: var(--white);
     outline: 1px solid var(--green_light);
+    background-image: none;
 }
 
 

@@ -4,9 +4,12 @@
 header {
     position: relative;
     height: 5rem;
+    z-index: 10;
 }
-
-.header {
+.headerHomepage {
+    position: absolute;
+}
+.headerHome { /* Homepage */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,7 +18,20 @@ header {
     position: fixed;
     top: 0;
     z-index: 1;
+}
+.headerHome.visible { /* Homepage */
     background-color: var(--creamwhite);
+}
+.header {
+    background-color: var(--creamwhite);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    top: 0;
+    z-index: 1;
 }
 
 .nav-menu {
@@ -45,6 +61,7 @@ header {
     text-decoration: none;
     position: relative;
     color: var(--black_lighter);
+    transition: opacity .2s ease-in-out,background-color .2s ease-in-out;
 }
 
 .nav-menu-a::after {
@@ -113,19 +130,20 @@ header {
     position: relative;
     display: inline-block;
     width: 100%;
-    height: 70vh;
+    height: 100vh;
     max-height: fit-content;
 
-    padding: 1rem 0 2rem;
+    /* padding: 1rem 0 2rem; */
 }
 
 .headerImg {
+    position:fixed;
     display: flex;
     object-fit: cover;
     opacity: 1;
     margin: 0 auto;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: block;
     background-position: 100%;
 }
@@ -136,7 +154,7 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    top: 35%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;

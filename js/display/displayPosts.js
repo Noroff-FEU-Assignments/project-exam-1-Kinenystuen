@@ -32,7 +32,7 @@ export async function displayPosts(posts) {
 
     const postsContainer = document.querySelector(".postsContainer");
     clearHTML(postsContainer);
-    const loaderAreaa = document.querySelector(".leaderArea");
+    const loaderAreaa = document.querySelector(".loaderArea");
     clearHTML(loaderAreaa);
     posts.forEach(post => {
 

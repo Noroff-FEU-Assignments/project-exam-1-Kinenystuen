@@ -2,8 +2,8 @@
   width: 100%;
 }
 
-
 .blogCard-img {
+  position: absolute;
   height: 50vh;
   width: 100%;
   /* max-width: 600px; */
@@ -12,7 +12,8 @@
   object-position: 50%;
   min-width: 10rem;
   min-width: 50%;
-  margin: 0;
+  margin: 0 auto;
+  z-index: 2;
 }
 
 .blogCard-images {
@@ -33,6 +34,49 @@
   opacity: 0.9;
 }
 
+/* background cover overlay and img */
+
+.background-img {
+  position: relative;
+  background-position: 0%;
+  width: 100%;
+  height: 50vh;
+}
+
+.background-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+.background-overlay {
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(176,176,176, 0.7);
+  background: rgba(0, 0, 0, 0.7); */
+  backdrop-filter: blur(10px);
+  z-index: 1;
+  border-radius: 6px;
+}
+.back-img {
+  object-fit: cover;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  border-radius: 6px;
+  background-repeat: no-repeat;
+  background-position: 50%
+}
+
+
+
 
 /* Modal img */
 /* Styles for the modal */
@@ -47,6 +91,7 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.9);
+  z-index: 99;
 }
 
 .modal-content {

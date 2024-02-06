@@ -8,7 +8,7 @@ export async function displaySelProduct(post) {
   const selPostContainer = document.querySelector(".selPostContainer");
   clearHTML(selPostContainer);
   const cardDiv = document.createElement(`div`);
-  cardDiv.classList = "";
+  cardDiv.classList = "image-area";
 
   // Fetch content.rendered data
   const parser = new DOMParser();
@@ -18,12 +18,23 @@ export async function displaySelProduct(post) {
   const images = doc.querySelectorAll("img");
   const paragraphs = doc.querySelectorAll(`p`);
 
-  const postImg1 = document.createElement("figure"); // Create a figure element
+  const postImg1 = document.createElement("figure"); // Create a figure element for the img
+  const backgroundWrapper = document.createElement("div"); // Create area for the background overlay
+  const backImg = document.createElement("back-img"); 
+  const overlay = document.createElement("div"); // Create div to make an overlay to the postImg1 image
+  postImg1.className = "background-img";
+  backgroundWrapper.className = "background-wrapper";
+  backImg.className = "back-img";
+  overlay.className = "background-overlay";
 
   const img1 = document.createElement("img");
   const image1 = images[0].attributes.src.nodeValue;
   const altText = images[0].nextElementSibling;
   const caption1 = document.createElement(`figcaption`);
+  backImg.style.backgroundImage = `url(${image1})`;
+  backgroundWrapper.appendChild(overlay);
+  backgroundWrapper.appendChild(backImg);
+  
   // Checks if the innerText element isn't undefined or null
   if (
     altText !== null &&
@@ -44,8 +55,11 @@ export async function displaySelProduct(post) {
     openModal(imagePath, imageAlt);
   });
 
+  // backgroundImg.appendChild(img1)
+  
   postImg1.appendChild(img1);
   postImg1.appendChild(caption1);
+  postImg1.appendChild(backgroundWrapper);
   cardDiv.appendChild(postImg1);
 
   const paragraphDiv = document.createElement("div");
