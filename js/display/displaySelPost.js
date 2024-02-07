@@ -31,6 +31,8 @@ export async function displaySelProduct(post) {
   const image1 = images[0].attributes.src.nodeValue;
   const altText = images[0].nextElementSibling;
   const caption1 = document.createElement(`figcaption`);
+  caption1.classList.add = "background_figcaption";
+  console.log(caption1)
   backImg.style.backgroundImage = `url(${image1})`;
   backgroundWrapper.appendChild(overlay);
   backgroundWrapper.appendChild(backImg);
@@ -44,23 +46,24 @@ export async function displaySelProduct(post) {
   ) {
     img1.alt = altText.innerText.trim();
     caption1.textContent = altText.innerText.trim();
-    caption1.classList = "caption", "right";
+    caption1.className = "background_figcaption";
   }
 
   img1.className = "blogCard-img";
   img1.src = image1;
   img1.addEventListener("click", function () {
     const imagePath = img1.getAttribute("src");
-    const imageAlt = img1.getAttribute("alt");
-    openModal(imagePath, imageAlt);
+    const imageAlts = img1.getAttribute("alt");
+    openModal(imagePath, imageAlts, images, imagesLength, currentImageIndex);
   });
 
   // backgroundImg.appendChild(img1)
   
   postImg1.appendChild(img1);
-  postImg1.appendChild(caption1);
+  //cardDiv.appendChild(caption1);
   postImg1.appendChild(backgroundWrapper);
   cardDiv.appendChild(postImg1);
+  cardDiv.appendChild(caption1);
 
   const paragraphDiv = document.createElement("div");
   (paragraphDiv.classList = "grid400-fill"), "gridcenter";
@@ -178,6 +181,10 @@ export async function displaySelProduct(post) {
   let hasImages = false;
 
   let currentImageIndex = 0;
+  let imagePath;
+  let imageAlt;
+  let imagesLength = images.length;
+  console.log(imagesLength)
 
   images.forEach(function (image, index) {
     if (isFirstImage) {
@@ -187,89 +194,21 @@ export async function displaySelProduct(post) {
     if (image.value > 0) {
       imagesContainer.appendChild(imagesTitle);
     }
-
     postImg = document.createElement("img");
     const imgSrc = image.attributes.src.nodeValue;
     postImg.className = "blogCard-images";
     const imageAlts = image.getAttribute("alt");
     postImg.src = imgSrc;
     postImg.addEventListener("click", function () {
-      const imagePath = image.getAttribute("src");
-      const imageAlt = img1.getAttribute("alt");
-      openModal(imagePath, imageAlts);
+      imagePath = image.getAttribute("src");
+      imageAlt = img1.getAttribute("alt");
       currentImageIndex = index;
+      openModal(imagePath, imageAlts, images, imagesLength, currentImageIndex);
     });
 
     imagesDiv.appendChild(postImg);
     hasImages = true;
   });
-
-  // Function to navigate to the next image
-  function nextImage() {
-    currentImageIndex = (currentImageIndex + 1) % images.length;
-    const nextImagePath = images[currentImageIndex].getAttribute("src");
-    const nextImageAlt = images[currentImageIndex].getAttribute("alt");
-    openModal(nextImagePath, nextImageAlt);
-  }
-
-  // Function to navigate to the previous image
-  function prevImage() {
-    currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-    const prevImagePath = images[currentImageIndex].getAttribute("src");
-    const prevImageAlt = images[currentImageIndex].getAttribute("alt");
-    openModal(prevImagePath, prevImageAlt);
-  }
-
-  // Eventlistener for moving between the images
-  document.addEventListener("keydown", function (event) {
-    if (event.key === "ArrowRight") {
-      nextImage();
-    }
-    if (event.key === "ArrowLeft") {
-      prevImage();
-    }
-  });
-  // Create touch event listener for swiping between images
-  let startX;
-  let endX;
-  
-  let modalImage = document.getElementById("imageModal");
-  
-  function swipetouch() {
-    if (modalImage.classList.contains("modalActive")) {
-      console.log("opensii")
-    }
-  }
-  swipetouch();
-  
-
-  if (getComputedStyle(imageModal).display === "block") {
-    console.log("open");
-    document.addEventListener("touchstart", function (event) {
-      startX = event.touches[0].clientX;
-      console.log("touch start");
-    });
-
-    document.addEventListener("touchmove", function (event) {
-      endX = event.touches[0].clientX;
-      console.log("touch move");
-    });
-    document.addEventListener("touchend", function (event) {
-      const threshold = 20; // fingermove length
-
-      // Using changedTouches to get touch information
-      const touchEndX = event.changedTouches[0].clientX;
-
-      if (startX - touchEndX > threshold) {
-        // Swiped left
-        nextImage();
-      } else if (touchEndX - startX > threshold) {
-        // Swiped right
-        prevImage();
-      }
-      console.log("touch end");
-    });
-  }
 
   // Checking if there is any images to display, if so add title "images"
   if (hasImages) {

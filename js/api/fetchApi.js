@@ -1,5 +1,6 @@
 import { displayPosts, showMorePosts } from "../display/displayPosts.js";
 import { displayCarousel } from "../display/displaycarousel.js";
+import { scrollheader, scrollIn, scrollOut100, scrollOut600, scrollIcon } from "../render/scroll.js";
 
 const baseUrl = "https://www.kineon.no/wp-json/";
 const posts = "wp/v2/posts";
@@ -29,7 +30,12 @@ export async function fetchApi(url) {
     if (currentUrl === window.location.origin || currentUrl === window.location.origin + "/" || currentUrl.includes("index.html")) {
         // displayCarousel(posts);
         displayCarousel(posts);
-        console.log("this is homepage")
+        //scrolls
+        scrollOut600();
+        scrollOut100();
+        scrollIn();
+        scrollheader();
+        scrollIcon();
     }
     
     return posts;

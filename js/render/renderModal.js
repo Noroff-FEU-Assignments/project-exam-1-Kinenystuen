@@ -1,7 +1,7 @@
 
 
 let modal = "";
-export async function openModal(imageSrc, imageAlt) {
+export async function openModal(imageSrc, imageAlt, images, imagesLength, currentImageIndex) {
   modal = document.getElementById("imageModal");
   const modalImage = document.getElementById("modalImage");
   const captionText = document.getElementById(`caption`);
@@ -16,6 +16,87 @@ export async function openModal(imageSrc, imageAlt) {
   modalImage.src = imageSrc;
   modalImage.alt = "Image Preview";
   captionText.innerHTML = imageAlt;
+
+  
+  // Function to navigate to the next image
+  function nextImage() {
+    currentImageIndex = (currentImageIndex + 1) % imagesLength;
+    console.log("Next image index:", currentImageIndex); // Add this line
+    const nextImage = images[currentImageIndex];
+  
+    // Get attributes of the next image
+    const nextImagePath = nextImage.getAttribute("src");
+    const nextImageAlt = nextImage.getAttribute("alt");
+    openModal(nextImagePath, nextImageAlt, images, imagesLength, currentImageIndex);
+  }
+
+  // Function to navigate to the previous image
+  function prevImage() {
+    currentImageIndex = (currentImageIndex - 1 + imagesLength) % imagesLength;
+    console.log("Previous image index:", currentImageIndex); // Add this line
+    const nextImage = images[currentImageIndex];
+  
+    // Get attributes of the next image
+    const prevImagePath = nextImage.getAttribute("src");
+    const prevImageAlt = nextImage.getAttribute("alt");
+    openModal(prevImagePath, prevImageAlt, images, imagesLength, currentImageIndex);
+  }
+
+  // If else to check is the modal is open
+  // Eventlistener for moving between the images
+  if (modal.classList.contains("modalActive")) {
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowRight") {
+        nextImage();
+      }
+      if (event.key === "ArrowLeft") {
+        prevImage();
+      }
+    });
+  }
+  
+  // Create touch event listener for swiping between images
+  let startX;
+  let endX;
+  
+  //let modalImage = document.getElementById("imageModal");
+  
+  function swipetouch() {
+    if (modalImage.classList.contains("modalActive")) {
+      console.log("opensii")
+    }
+  }
+  swipetouch();
+  
+
+  if (modal.classList.contains("modalActive")) {
+    console.log("open");
+    document.addEventListener("touchstart", function (event) {
+      startX = event.touches[0].clientX;
+      console.log("touch start");
+    });
+
+    document.addEventListener("touchmove", function (event) {
+      endX = event.touches[0].clientX;
+      console.log("touch move");
+    });
+    document.addEventListener("touchend", function (event) {
+      const threshold = 20; // fingermove length
+
+      // Using changedTouches to get touch information
+      const touchEndX = event.changedTouches[0].clientX;
+
+      if (startX - touchEndX > threshold) {
+        // Swiped left
+        nextImage();
+      } else if (touchEndX - startX > threshold) {
+        // Swiped right
+        prevImage();
+      }
+      console.log("touch end");
+    });
+  }
+
 }
 
 function closeModal() {

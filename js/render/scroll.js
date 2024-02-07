@@ -4,38 +4,36 @@
 const headerTitle = document.querySelector(".headerTitle");
 const carouselContainer = document.querySelector(".sectionCarousel");
 const headerContainer = document.querySelector(".headerContainer");
+const sectionInfo = document.getElementById("sectionInfo");
 
-export function scrollIn(element) {
+export function scrollIn() {
     window.addEventListener("scroll", function() {
-        var rect = element.getBoundingClientRect();
+        var rect = carouselContainer.getBoundingClientRect();
         var distanceFromTop = rect.top -200;
-        var opacity = 1 - (distanceFromTop / 600);
+        var opacity = 1 - (distanceFromTop / 800);
         opacity = Math.min(1, Math.max(0, opacity));
-        element.style.opacity = opacity;
+        carouselContainer.style.opacity = opacity;
     });
 }
-scrollIn(carouselContainer);
 
-export function scrollOut100(element) {
+export function scrollOut100() {
     window.addEventListener("scroll", function() {
         var scrollPosition = window.scrollY;
-        var opacity = 1 - (scrollPosition / 100); // Change number as for when it should disapear
+        var opacity = 1 - (scrollPosition / 400); // Change number as for when it should disapear
         opacity = Math.min(1, Math.max(0, opacity));
-        element.style.opacity = opacity;
+        headerTitle.style.opacity = opacity;
       });
 }
-scrollOut100(headerTitle);
 
-export function scrollOut600(element) {
+export function scrollOut600() {
     window.addEventListener("scroll", function() {
-        var rect = element.getBoundingClientRect();
+        var rect = headerContainer.getBoundingClientRect();
         var distanceFromBottom = window.innerHeight - rect.bottom;
-        var opacity = 1 - (distanceFromBottom / 600); // Change number as for when it should disappear
+        var opacity = 1 - (distanceFromBottom / 700); // Change number as for when it should disappear
         opacity = Math.min(1, Math.max(0, opacity));
-        element.style.opacity = opacity;
+        headerContainer.style.opacity = opacity;
     });
 }
-scrollOut600(headerContainer);
 
 //
 //
@@ -43,11 +41,12 @@ scrollOut600(headerContainer);
 const headerHome = document.querySelector('.headerHome');
 const container = document.querySelector(".headerContainer");
 const offset = 100;
-const triggerBottom = container.getBoundingClientRect().bottom - offset;
+
 // Add scroll event listener
 export function scrollheader() {
     window.addEventListener('scroll', function() {
         const scrollPosition = window.scrollY;
+        const triggerBottom = container.getBoundingClientRect().bottom - offset;
         const isPastTrigger = triggerBottom <= scrollPosition;
         if (isPastTrigger) {
             headerHome.classList.add('visible');
@@ -56,5 +55,41 @@ export function scrollheader() {
         }
     });
 }
-scrollheader();
 
+export function scrollIcon() {
+    
+const scrollIcon = document.getElementById("goDownIcon");
+
+// Function to pulse the icon
+function pulseIcon() {
+    scrollIcon.classList.add('pulse');
+}
+
+// Start pulsing the icon after 3 seconds
+setTimeout(() => {
+    pulseIcon();
+}, 3000);
+
+// Event listener to remove pulsing when scrolling starts
+window.addEventListener('scroll', function() {
+    // If the user has scrolled, remove the pulsing effect
+    if (window.scrollY > 0) {
+        scrollIcon.classList.remove('pulse');
+    }
+    else {
+        scrollIcon.classList.add('pulse');   
+    }
+});
+
+// Function to handle smooth scrolling to the section
+scrollIcon.addEventListener("click", function() {
+    const sectionPos = sectionInfo.getBoundingClientRect().top;
+    const scrollTo = window.scrollY + sectionPos - (window.innerHeight * 0.2);
+    
+    window.scrollTo({
+        top: scrollTo,
+        behavior: "smooth"
+    });
+});
+
+}

@@ -18,6 +18,7 @@ html {
 body {
     margin: 0px;
     font-family: var(--epilogue);
+    font-family: "Montserrat", Verdana, Geneva, Tahoma, sans-serif;
     color: var(--dark_black);
 }
 
@@ -44,10 +45,11 @@ nav {
 
 a {
     text-decoration: none;
+    font-family: 'Lato', 'Dosis', Arial, Helvetica, sans-serif ;
 }
 
 p {
-    font-family: 'Dosis', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Lato", "Montserrat",'Dosis', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 400;
 }
 
@@ -59,24 +61,33 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
+    align-self: center;
+    align-content: center;
     border: none;
     border-radius: 6px;
     padding: 0.4rem;
     margin: 0rem;
+    margin-top: 2rem;
     background-color: var(--creamwhite);
     border: 1px solid var(--creamwhite);
+    height: 100%;
 }
 
 .goBackButton:hover {
     background-color: var(--green_light);
 }
 
-.goBackButton .goBackButtonText {
-    font-family: 'Dosis', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+.goBackButtonText {
+    font-family: 'Epilogue','Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: 600;
     margin-left: 0.5rem;
     font-size: 0.9rem;
+    text-align: center;
+    align-self: center;
+    height: fit-content;
+    padding-top:0.15rem;
 }
+
 
 .custom-icon-size {
     font-size: 1.4rem;
@@ -88,7 +99,7 @@ p {
     width: 100%;
     height: fit-content;
     z-index: 2;
-    padding: 2rem 0;
+    padding-bottom: 2rem;
 }
 
 /* Other global selectors */
@@ -192,27 +203,32 @@ p {
 /* illustration */
 
 .illustration {
+    z-index: 2; 
     display: flex;
     justify-content: end;
+    align-items: center;
     width: 100%;
     height: 100%;
+    margin-top: 2rem;
 }
 .illustration img {
     width: 100%;
     height: 100%;
+    z-index: 2; /* so the illustration is put over the fixed header img */
 }
 
 /* sectionInfo : headerpage */
 
-.sectionInfo {
+.sectionInfo, .sectionAbout {
     position: relative;
-    background-color: var(--green_light);
     height: fit-content;
-    padding: 3rem;
-    
+    padding-bottom: 3rem;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.sectionAbout {
+    padding: 3rem 0;
 }
 
 .container-box {
@@ -222,23 +238,26 @@ p {
     width: 100%;
     height: 100%;
     border-radius: 6px;
+    flex-direction: column;
 }
 .container-box_items {
     margin: 0.5rem;
+    flex: 1;
 }
 .container-box_items h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     font-weight: 800;
     text-transform: uppercase;
     text-align: end;
     line-height: 1.2;
     color: white;
+    
 }
 .container-box_items p {
     font-size: 1rem;
     font-family: var(--epilogue);
+    font-family: 'Abril Fatface', 'Montserrat', Verdana, Geneva, Tahoma, sans-serif;
     font-weight: 600;
-    text-transform: ;
     text-align: end;
     line-height: 1.2;
     color: white;
@@ -246,6 +265,7 @@ p {
 .container-box_img {
     margin: 0.5rem;
     border-radius: 1rem;
+    flex:2;
 }
 .container-box_img img {
     height: 50vh;

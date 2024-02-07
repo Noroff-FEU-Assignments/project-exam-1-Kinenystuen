@@ -1,5 +1,5 @@
 h1, h2 {
-    font-family: var(--epilogue);
+    font-family: 'Lato', 'Epilogue', 'Dosis', Arial, Helvetica, sans-serif;
 }
 
 .fontSize08 {
@@ -15,5 +15,10 @@ h1, h2 {
 
 .caption {
     font-size: 0.8rem;
-    
+    font-style: italic;
+}
+
+.cursive {
+    font-style: italic;
+    font-size: 0.9rem;
 }

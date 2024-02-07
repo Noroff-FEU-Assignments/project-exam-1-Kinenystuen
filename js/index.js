@@ -8,5 +8,4 @@ import { openModal } from "./render/renderModal.js";
 
 import { validateForm } from "./contact.js";
 
-// functions for scroll events
-import { scrollIn, scrollOut100, scrollOut600, scrollheader } from "./render/scroll.js";
+

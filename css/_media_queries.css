@@ -33,10 +33,17 @@ Content:
     }
 
     .nav-menu {
+        position: absolute;
+        top: 0;
         display: none;
-        background-color: var(--white);
+        background-color: var(--creamwhite);
         width: 100%;
         margin: 0;
+        padding:  4rem 2rem 0 2rem  ;
+    }
+
+    .logo_mountain {
+        z-index: 2;
     }
 
     .hamburger_icon {
@@ -44,9 +51,12 @@ Content:
         position: absolute;
         top: 0%;
         padding: 1.5rem;
-        right: 10%;
+        right: 5%;
         margin: 1.3rem 0.2rem;
 
+    }
+    .headerHome.visible {
+        background-color: none;
     }
 
     .nav-menu-ul {
@@ -64,6 +74,11 @@ Content:
         padding: 0.3rem 0.6rem;
     }
 
+    .header-img {
+
+    }
+
+
     /* When hamburger-icon is clicked nav-menu opens and hamburgermenu changes icon*/
     .nav-menu[data-visible="true"] {
         display: flex;
@@ -72,6 +87,23 @@ Content:
     .hamburger_icon[aria-expanded="true"] {
         background-image: url(/icons/V_hamburger_open.svg);
 
+    }
+    .background-img {
+        height: 30vh;
+        max-height: fit-content;
+    }
+    .blogCard-img {
+        height: fit-content;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .background-wrapper {
+        display: none;
+    }
+    /* container flex */
+    .sectionAbout {
+        flex-direction: column;
     }
 }
 

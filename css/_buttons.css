@@ -14,6 +14,7 @@ button {
     background-color: var(--green_light);
     border: 1px solid var(--green_light);
     text-transform: uppercase;
+    font-family: "Lato";
 }
 button:hover {
     background-color: var(--white);

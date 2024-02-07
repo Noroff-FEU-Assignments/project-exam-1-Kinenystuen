@@ -1,7 +1,6 @@
 
 @import url(/css/_variables.css);
 @import url(/css/_globalstyles.css);
-@import url(/css/_colors.css);
 @import url(/css/_flex_grids.css);
 @import url(/css/_padding_margin.css);
 @import url(/css/_header_menu.css);
@@ -13,6 +12,7 @@
 @import url(/css/_carousel.css);
 @import url(/css/_form.css);
 @import url(/css/_about.css);
+@import url(/css/_colors.css);
 
 /* media queries import has to be at the bottom to work */
 @import url(/css/_media_queries.css);
