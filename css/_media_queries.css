@@ -94,6 +94,7 @@ Content:
         display: flex;
         justify-content: center;
         align-items: center;
+        object-fit: cover;
     }
     .background-wrapper {
         display: none;
@@ -101,6 +102,9 @@ Content:
     /* container flex */
     .sectionAbout, .flexCR {
         flex-direction: column;
+    }
+    .container-box_items h2 {
+        text-align: center;
     }
 }
 
@@ -208,18 +212,13 @@ Content:
     .search-input:hover {
         width: 100%;
     }
-    /* header img */
-    /* .headerContainer {
-        height: 500px;
+    .headerTitle {
+        font-size: 1.5rem;
     }
     .headerImg {
-        height: 500px;
+        position:relative;
+        height: calc(var(--vh, 1vh) * 80);
     }
-    .background-img {
-        height: 30vh;
-        min-height: 150px;
-        max-height: fit-content;
-    } */
 }
 
 @media (max-width:250px) {
