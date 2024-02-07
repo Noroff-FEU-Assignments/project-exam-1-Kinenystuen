@@ -36,7 +36,7 @@ Content:
         position: absolute;
         top: 0;
         display: none;
-        background-color: var(--creamwhite);
+        background-color: var(--white);
         width: 100%;
         margin: 0;
         padding:  4rem 2rem 0 2rem  ;
@@ -53,7 +53,6 @@ Content:
         padding: 1.5rem;
         right: 5%;
         margin: 1.3rem 0.2rem;
-
     }
     .headerHome.visible {
         background-color: none;
@@ -74,8 +73,11 @@ Content:
         padding: 0.3rem 0.6rem;
     }
 
-    .header-img {
-
+    .headerContaier {
+        height: 500px;
+    }
+    .headerImg {
+        height: 1200px;
     }
 
 
@@ -90,10 +92,12 @@ Content:
     }
     .background-img {
         height: 30vh;
+        min-height: 200px;
         max-height: fit-content;
     }
     .blogCard-img {
         height: fit-content;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -102,7 +106,7 @@ Content:
         display: none;
     }
     /* container flex */
-    .sectionAbout {
+    .sectionAbout, .flexCR {
         flex-direction: column;
     }
 }
@@ -210,6 +214,18 @@ Content:
 
     .search-input:hover {
         width: 100%;
+    }
+    /* header img */
+    .headerContaier {
+        height: 500px;
+    }
+    .headerImg {
+        height: 500px;
+    }
+    .background-img {
+        height: 30vh;
+        min-height: 150px;
+        max-height: fit-content;
     }
 }
 
