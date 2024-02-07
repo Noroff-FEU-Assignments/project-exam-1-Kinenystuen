@@ -73,11 +73,6 @@ Content:
         padding: 0.3rem 0.6rem;
     }
 
-    
-    .headerImg {
-        height: 1200px;
-    }
-
 
     /* When hamburger-icon is clicked nav-menu opens and hamburgermenu changes icon*/
     .nav-menu[data-visible="true"] {
@@ -214,7 +209,7 @@ Content:
         width: 100%;
     }
     /* header img */
-    .headerContainer {
+    /* .headerContainer {
         height: 500px;
     }
     .headerImg {
@@ -224,7 +219,7 @@ Content:
         height: 30vh;
         min-height: 150px;
         max-height: fit-content;
-    }
+    } */
 }
 
 @media (max-width:250px) {
