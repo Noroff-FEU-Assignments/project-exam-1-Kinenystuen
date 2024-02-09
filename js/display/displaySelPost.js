@@ -323,30 +323,30 @@ export async function displayComments(comments) {
   containerComments.appendChild(commentDiv);
 
   document.getElementById("commentForm").addEventListener("submit", function(event) {
-    event.preventDefault();
+    event.preventDefault(); // Prevent the default form submission behavior
 
+    // Retrieve user input values
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const comment = document.getElementById("comment").value;
-    const postId = 80;
-    console.log(postId)
+    const postId = 80; // Replace with the actual post ID
 
     // Prepare comment data
     const commentData = {
         author_name: name,
-        author_email: "email@hotmail.com",
+        author_email: email,
         content: comment,
         post: postId
     };
+    console.log(commentData)
 
     // Send comment data to WordPress REST API
     fetch("https://kineon.no/wp-json/wp/v2/comments", {
         method: "POST",
         headers: {
-            "Content-Type": "application/json",
-            // Include any additional headers if needed, such as authentication headers
+            "Content-Type": "application/json"
         },
-        body: JSON.stringify(commentData),
+        body: JSON.stringify(commentData)
     })
     .then(response => {
         if (!response.ok) {
@@ -363,6 +363,7 @@ export async function displayComments(comments) {
         // Optionally, display an error message or handle the error gracefully
     });
 });
+
 
 
 }

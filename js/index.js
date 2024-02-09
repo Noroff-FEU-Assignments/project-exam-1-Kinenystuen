@@ -8,6 +8,8 @@ import { openModal } from "./render/renderModal.js";
 
 import { validateForm } from "./contact.js";
 
+import { scrollIcon, scrollIn, scrollOut100, scrollOut600, scrollheader } from "./render/scroll.js";
+
 
 
 // Fix vh 

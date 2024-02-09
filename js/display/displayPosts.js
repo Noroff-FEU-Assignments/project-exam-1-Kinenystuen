@@ -161,7 +161,6 @@ export async function showLessPosts() {
     fetchApi(newUrl);
   };
 
-
   /* 
   Filtering blog posts 
   */
