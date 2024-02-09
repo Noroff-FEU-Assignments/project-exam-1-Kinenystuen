@@ -15,8 +15,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dosis:wght@200;300;400;500;600;700;800&family=Epilogue:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
     <!-- Hotjar Tracking Code for Mountain Life -->
     <script>
         (function (h, o, t, j, a, r) {
@@ -58,9 +60,19 @@
     </header>
     <main class="fitPage">
         <section class="sectionContact content_wrap flexcenter">
-            <h1>Contact me</h1>
+            <div class="content_wrap">
+                <h1 class="h1Title">Contact info</h1>
+                <div class="line"></div>
+                <div>
+                    <p>Welcome to Mountain Life's contact page! Whether you have a question about the content or simply
+                        want to say hello, i'm here to help.</p>
+                    <p>Feel free to fill out the contact form below or reach out to me directly via email. I will do my
+                        best to respond shortly and assist you in any way I can.</p>
+                    <p>- Kine</p>
+                </div>
+            </div>
             <div class="formContainer">
-                <form action="" class="contactForm" id="contactForm">
+                <form action="" method="" class="contactForm" id="contactForm">
                     <fieldset>
                         <legend>
                             <h3>Send me an e-mail</h3>
@@ -110,7 +122,8 @@
                                     <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
                                 </span>
                             </label>
-                            <textarea id="message" name="message" rows="10" placeholder="Type your message.."></textarea>
+                            <textarea id="message" name="message" rows="10"
+                                placeholder="Type your message.."></textarea>
                             <div class="formError" id="message-error">Your message must be minimum 25 characters long.
                             </div>
                         </div>

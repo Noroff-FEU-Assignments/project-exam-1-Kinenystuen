@@ -10,6 +10,7 @@ import { validateForm } from "./contact.js";
 
 
 
+// Fix vh 
 window.addEventListener('resize', () => {
     // We execute the same script as before
     let vh = window.innerHeight * 0.01;

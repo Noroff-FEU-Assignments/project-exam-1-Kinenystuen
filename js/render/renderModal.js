@@ -21,7 +21,6 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
   // Function to navigate to the next image
   function nextImage() {
     currentImageIndex = (currentImageIndex + 1) % imagesLength;
-    console.log("Next image index:", currentImageIndex); // Add this line
     const nextImage = images[currentImageIndex];
   
     // Get attributes of the next image
@@ -52,6 +51,15 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
       if (event.key === "ArrowLeft") {
         prevImage();
       }
+    });    
+  }else {
+    document.removeEventListener("keydown", function (event) {
+      if (event.key === "ArrowRight") {
+        nextImage();
+      }
+      if (event.key === "ArrowLeft") {
+        prevImage();
+      }
     });
   }
   
@@ -59,31 +67,18 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
   let startX;
   let endX;
   
-  //let modalImage = document.getElementById("imageModal");
-  
-  function swipetouch() {
-    if (modalImage.classList.contains("modalActive")) {
-      console.log("opensii")
-    }
-  }
-  swipetouch();
-  
 
   if (modal.classList.contains("modalActive")) {
-    console.log("open");
-    document.addEventListener("touchstart", function (event) {
+    modal.addEventListener("touchstart", function (event) {
       startX = event.touches[0].clientX;
-      console.log("touch start");
     });
 
-    document.addEventListener("touchmove", function (event) {
+    modal.addEventListener("touchmove", function (event) {
       endX = event.touches[0].clientX;
-      console.log("touch move");
     });
-    document.addEventListener("touchend", function (event) {
+    modal.addEventListener("touchend", function (event) {
       const threshold = 20; // fingermove length
 
-      // Using changedTouches to get touch information
       const touchEndX = event.changedTouches[0].clientX;
 
       if (startX - touchEndX > threshold) {
@@ -93,9 +88,9 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
         // Swiped right
         prevImage();
       }
-      console.log("touch end");
     });
   }
+  else  {}
 
 }
 

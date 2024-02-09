@@ -18,7 +18,58 @@ button {
 }
 button:hover {
     background-color: var(--white);
-    border: 1px solid var(--green_light);
+    border: 1px solid var(--dark_black);
+    color: var(--black);
+}
+
+/* 
+Div button with transition 
+*/
+.buttonArea {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.divButton {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: fit-content;
+    border-radius: 6px;
+    padding: 0.6rem 0;
+    margin: 1rem 0;
+    font-weight: 600;
+    text-align: center;
+    /* background-color: var(--white); */
+    /* border-bottom: 2px solid var(--green_light); */
+    color: var(--black);
+
+    transition: opacity .2s ease-in-out,background-color .2s ease-in-out;
+    cursor: pointer;
+}
+.divButton::after {
+    content: "";
+    background-color: var(--green_light);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    z-index: 1;
+}
+.divButton:hover::after {
+    width: 100%;
+    transition: width 0.3s ease-in-out;
+}
+.divButton_a {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    text-transform: uppercase;
+    text-decoration: none;
     color: var(--black);
 }
 

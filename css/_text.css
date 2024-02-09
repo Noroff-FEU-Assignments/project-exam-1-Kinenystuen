@@ -1,7 +1,3 @@
-h1, h2 {
-    font-family: 'Lato', 'Epilogue', 'Dosis', Arial, Helvetica, sans-serif;
-}
-
 .fontSize08 {
     font-size: 0.8rem;
     font-weight: 400;
@@ -21,4 +17,9 @@ h1, h2 {
 .cursive {
     font-style: italic;
     font-size: 0.9rem;
+}
+.fw-light {
+    font-size: 0.8rem;
+    font-weight: 400;
+    font-style: italic;
 }

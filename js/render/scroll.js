@@ -93,3 +93,27 @@ scrollIcon.addEventListener("click", function() {
 });
 
 }
+//scrolls
+// scrollOut600();
+// scrollOut100();
+// scrollIn();
+// scrollheader();
+// scrollIcon();
+
+
+// Arrow up
+if (document.getElementById("arrowUpButton")) {
+    window.addEventListener("scroll", function() {
+        var arrowUpButton = document.getElementById("arrowUpButton");
+        if (window.scrollY > 300) { // Adjust the scroll position as needed
+            arrowUpButton.style.display = "block";
+        } else {
+            arrowUpButton.style.display = "none";
+        }
+    });
+    
+    document.getElementById("arrowUpButton").addEventListener("click", function() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+}
+

@@ -16,3 +16,6 @@
 .bgCreamWhite {
     background-color: var(--creamwhite);
 }
+.bgDarkBrown {
+    background-color: var(--dark_brown);
+}

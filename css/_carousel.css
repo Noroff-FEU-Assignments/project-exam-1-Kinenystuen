@@ -83,7 +83,7 @@
 /* Carousel )*/
 .sectionCarousel {
     position: relative;
-    padding: 2rem 0;
+    background-color: var(--creamwhite);
 }
 
 .carousel-container {

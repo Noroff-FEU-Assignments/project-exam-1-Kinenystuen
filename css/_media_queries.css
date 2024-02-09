@@ -18,6 +18,9 @@ Content:
     * {
         font-size: 18px;
     }
+    a, p {
+        font-size: 1rem;
+    }
 }
 
 @media (max-width: 800px) {
@@ -222,6 +225,9 @@ Content:
 }
 
 @media (max-width:250px) {
+    * {
+        font-size: 14px;
+    }
     /* grid and flexes change */
     .grid400 {
         display: grid;

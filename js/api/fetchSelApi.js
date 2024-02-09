@@ -1,4 +1,4 @@
-import { displaySelProduct } from "../display/displaySelPost.js";
+import { displaySelProduct, getComments } from "../display/displaySelPost.js";
 
 // Finds the id in the queryString
 const queryString = document.location.search;
@@ -17,6 +17,7 @@ export async function fetchSelApi(url) {
     }
     const post = await responseSM.json();
     displaySelProduct(post);
+    getComments(post);
 
     return post;
   } catch (error) {

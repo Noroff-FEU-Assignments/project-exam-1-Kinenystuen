@@ -20,6 +20,7 @@
     .section_padding {
         padding: 1rem 0 3rem;
     }
+    
 
 /* Margin */
     .margin1rem {
@@ -27,6 +28,9 @@
     }   
     .marginauto {
         margin: auto;
+    }
+    .margin_bottom2rem {
+        margin-bottom: 4rem;
     }
 
 /* Gap */

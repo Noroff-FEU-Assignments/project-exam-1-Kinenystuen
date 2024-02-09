@@ -2,7 +2,7 @@
   position: relative;
   width: 100%;
 }
-.image-area  {
+.card-area  {
   display: block;
 }
 
@@ -41,12 +41,12 @@
 .background_figcaption {
   position: relative;
   right: 0rem;
-  justify-content: center;
+  justify-content: right;
   align-items: center;
   display: flex;
   z-index: 60;
   font-style: italic;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
 }
 
 /* background cover overlay and img */
@@ -100,7 +100,7 @@
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 50px;
+  margin: auto;
   left: 0;
   top: 0;
   width: 100%;
@@ -111,14 +111,19 @@
 }
 
 .modal-content {
-  margin: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   max-width: 100%;
   max-height: 100%;
 }
+.modal.modal-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
 /* The Close Button */
 .close {
   position: absolute;
@@ -177,7 +182,9 @@
 }
 
 
-
+.informationLine p {
+  margin: 0.5rem 0 1rem;
+}
 
 /* Categorie and tag area */
 
@@ -209,4 +216,37 @@
 
 .catP a {
   margin-right: 0.5rem;
+  color: var(--black);
+}
+
+
+/*
+Comment section area
+*/
+
+.containerComments {
+  background-color: var(--white);
+}
+.cmtBox {
+  border-bottom: 1px solid var(--gray);
+  padding: 1rem 2rem;
+  margin: 1rem 0;
+}
+.cmtBox-info {
+  display: flex;
+  justify-content:space-between;
+  align-items: center;
+}
+.cmtBox-info_h3 {
+  font-size: 1rem;
+  margin: 0;
+  padding: 0.5rem 0;
+}
+.cmtBox-info_p {
+  font-size: 0.8;
+  font-style: italic;
+  margin: 0;
+}
+.cmtBox-text {
+  margin: 1rem 0;
 }

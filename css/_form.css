@@ -81,10 +81,7 @@
 
 /* Select menu at blogs page */
 
-/* search bar */
-.search {
-    
-}
+
 
 .select-form, .search-input {
     padding: 0.4rem 0.5rem;
@@ -115,18 +112,21 @@
     background-color: var(--creamwhite);
     border-color: var(--creamwhite);
 }
-.search-input:hover {
+.search-input:onclick {
     width: 12rem;
     background-color: var(--white);
-    border: 2px solid var(--green_light);
+    border-bottom: 2px solid var(--green_light);
 }
 /* Increase specificity */
 input.search-input:focus {
     width: 12rem;
     background-color: var(--white);
     outline: 1px solid var(--green_light);
-    background-image: none;
 }
+input.search-input::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+
 
 
 .search-label {
