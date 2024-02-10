@@ -22,7 +22,7 @@ export async function displaySelProduct(post) {
 
   const postImg1 = document.createElement("figure"); // Create a figure element for the img
   const backgroundWrapper = document.createElement("div"); // Create area for the background overlay
-  const backImg = document.createElement("back-img"); 
+  const backImg = document.createElement("back-img");
   const overlay = document.createElement("div"); // Create div to make an overlay to the postImg1 image
   postImg1.className = "background-img";
   backgroundWrapper.className = "background-wrapper";
@@ -37,7 +37,7 @@ export async function displaySelProduct(post) {
   backImg.style.backgroundImage = `url(${image1})`;
   backgroundWrapper.appendChild(overlay);
   backgroundWrapper.appendChild(backImg);
-  
+
   // Checks if the innerText element isn't undefined or null
   if (
     altText !== null &&
@@ -59,7 +59,7 @@ export async function displaySelProduct(post) {
   });
 
   // backgroundImg.appendChild(img1)
-  
+
   postImg1.appendChild(img1);
   //cardDiv.appendChild(caption1);
   postImg1.appendChild(backgroundWrapper);
@@ -78,7 +78,6 @@ export async function displaySelProduct(post) {
   pageLocation.innerHTML += `  /  ${post.title.rendered}`; // Append the title as HTML string
   cardDiv.appendChild(pageLocation);
 
-
   // Create blog title
   const h1Post = document.createElement("h1");
   h1Post.innerText = post.title.rendered;
@@ -89,15 +88,15 @@ export async function displaySelProduct(post) {
   cardDiv.appendChild(line);
 
   // Create admin text and puplished date
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', {
-      day: 'numeric',
-      month: 'long',
-      year: 'numeric'
+  const formattedDate = new Date(post.date).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
   });
-    
+
   const informationPost = document.createElement("div");
   informationPost.className = "flex_spacebetween";
-  informationPost.classList.add("informationLine")
+  informationPost.classList.add("informationLine");
   const postedBy = document.createElement("p");
   postedBy.innerHTML = `Posted by: ${post._embedded.author[0].name}`;
   const published = document.createElement("p");
@@ -106,7 +105,6 @@ export async function displaySelProduct(post) {
   informationPost.appendChild(postedBy);
   informationPost.appendChild(published);
   cardDiv.appendChild(informationPost);
-
 
   const paragraphDiv = document.createElement("div");
   (paragraphDiv.classList = "grid400-fill"), "gridcenter";
@@ -259,27 +257,28 @@ export async function displaySelProduct(post) {
   // selPostContainer.appendChild(tagcatArea);
 }
 
-
 export async function getComments(post) {
   console.log(post);
   const postId = post.id;
-  const url = "https://www.kineon.no/wp-json/wp/v2/comments" + `?post=${postId}`;
+  const url =
+    "https://www.kineon.no/wp-json/wp/v2/comments" + `?post=${postId}`;
   try {
     const responseC = await fetch(url);
     if (!responseC.ok) {
-    throw new Error(`API request failed with status: ` + responseC.status);
-  }
+      throw new Error(`API request failed with status: ` + responseC.status);
+    }
     const comments = await responseC.json();
-  
-    displayComments(comments);
+
+    displayComments(comments, postId);
   } catch (error) {
     console.log("Error selectedMovie: " + error);
     return;
   }
 }
 
-export async function displayComments(comments) {
+export async function displayComments(comments, postId) {
   console.log(comments);
+  console.log(postId);
 
   const containerComments = document.getElementById("containerComments");
   containerComments.className = "containerComments";
@@ -289,31 +288,31 @@ export async function displayComments(comments) {
 
   const commentDiv = document.createElement("div");
   commentDiv.className = "cmtBox";
-      
+
   if (comments.length === 0) {
     const cmtPar = document.createElement(`p`);
     cmtPar.innerText = "There is no comments yet on this post.";
     commentDiv.appendChild(cmtPar);
   } else {
     comments.forEach(function (comment) {
-          const cmtBoxInfo = document.createElement("div");
-          cmtBoxInfo.className = "cmtBox-info";
-              const cmtBoxInfoH3 = document.createElement("h3");
-              cmtBoxInfoH3.className = "cmtBox-info_h3";
-              cmtBoxInfoH3.innerHTML = comment.author_name;
-              const cmtBoxInfoP = document.createElement("p");
-              cmtBoxInfoP.className = "cmtBox-info_p";
-                const formattedDate = new Date(comment.date).toLocaleDateString('en-US', {
-                  day: 'numeric',
-                  month: 'long',
-                  year: 'numeric'
-                });
-              cmtBoxInfoP.innerHTML = formattedDate;
-          cmtBoxInfo.appendChild(cmtBoxInfoH3);
-          cmtBoxInfo.appendChild(cmtBoxInfoP);
-          const cmtBoxText = document.createElement("p");
-          cmtBoxText.innerHTML = comment.content.rendered;
-          cmtBoxText.className = "cmtBox-text";
+      const cmtBoxInfo = document.createElement("div");
+      cmtBoxInfo.className = "cmtBox-info";
+      const cmtBoxInfoH3 = document.createElement("h3");
+      cmtBoxInfoH3.className = "cmtBox-info_h3";
+      cmtBoxInfoH3.innerHTML = comment.author_name;
+      const cmtBoxInfoP = document.createElement("p");
+      cmtBoxInfoP.className = "cmtBox-info_p";
+      const formattedDate = new Date(comment.date).toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+      cmtBoxInfoP.innerHTML = formattedDate;
+      cmtBoxInfo.appendChild(cmtBoxInfoH3);
+      cmtBoxInfo.appendChild(cmtBoxInfoP);
+      const cmtBoxText = document.createElement("p");
+      cmtBoxText.innerHTML = comment.content.rendered;
+      cmtBoxText.className = "cmtBox-text";
       commentDiv.appendChild(cmtBoxInfo);
       commentDiv.appendChild(cmtBoxText);
     });
@@ -322,49 +321,43 @@ export async function displayComments(comments) {
   // console.log(commentDiv);
   containerComments.appendChild(commentDiv);
 
-  document.getElementById("commentForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+  function handleSubmit(event) {
+    event.preventDefault();
 
     // Retrieve user input values
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const comment = document.getElementById("comment").value;
-    const postId = 80; // Replace with the actual post ID
 
-    // Prepare comment data
     const commentData = {
-        author_name: name,
-        author_email: email,
-        content: comment,
-        post: postId
+      author_name: name,
+      author_email: email,
+      content: comment,
+      post: postId,
     };
-    console.log(commentData)
 
     // Send comment data to WordPress REST API
     fetch("https://kineon.no/wp-json/wp/v2/comments", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(commentData)
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(commentData),
     })
-    .then(response => {
+      .then((response) => {
         if (!response.ok) {
-            throw new Error("Failed to post comment");
+          throw new Error("Failed to post comment");
         }
         return response.json();
-    })
-    .then(data => {
+      })
+      .then((data) => {
         console.log("Comment posted successfully:", data);
-        // Optionally, display a success message or update the UI
-    })
-    .catch(error => {
+      })
+      .catch((error) => {
         console.error("Error posting comment:", error);
-        // Optionally, display an error message or handle the error gracefully
-    });
-});
-
-
-
+      });
+  }
+  document
+    .getElementById("commentForm")
+    .addEventListener("submit", handleSubmit);
 }
-  
