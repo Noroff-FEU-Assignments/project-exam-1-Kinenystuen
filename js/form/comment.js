@@ -45,10 +45,11 @@ export async function displayComments(comments, postId) {
     h3Cmt.innerHTML = `Comments (${comments.length})`;
 
     if (comments.length === 0) {
+      containerComments.innerHTML = "";
       const commentDiv = document.createElement("div");
       commentDiv.className = "cmtBox";
       const cmtPar = document.createElement(`p`);
-      cmtPar.innerText = "There is no comments yet on this post.";
+      cmtPar.innerText = "Be the first to comment on the post!";
       commentDiv.appendChild(cmtPar);
       containerComments.appendChild(commentDiv);
     } else {

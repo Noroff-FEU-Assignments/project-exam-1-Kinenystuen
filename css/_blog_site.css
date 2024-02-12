@@ -155,14 +155,14 @@
 }
 
 #caption {
-  margin: auto;
-  display: block;
-  width: 80%;
-  max-width: 700px;
+  z-index: 100;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translate(-50%, 50%);
   text-align: center;
   color: var(--graywhite);
   padding: 10px 0;
-  height: fit-content;
 }
 
 /* Add Animation - Zoom in the Modal */
@@ -253,6 +253,6 @@ Comment section area
   margin: 1rem 0;
 }
 
-#sendMessageContainer {
+#publishedCommentContainer {
   display: block;
 }

@@ -14,7 +14,7 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
   modal.style.display = "block";
   modal.classList.add("modalActive");
   modalImage.src = imageSrc;
-  modalImage.alt = "Image Preview";
+  modalImage.alt = imageAlt;
   captionText.innerHTML = imageAlt;
 
   
@@ -25,19 +25,18 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
   
     // Get attributes of the next image
     const nextImagePath = nextImage.getAttribute("src");
-    const nextImageAlt = nextImage.getAttribute("alt");
+    const nextImageAlt = nextImage.nextElementSibling.innerHTML;
     openModal(nextImagePath, nextImageAlt, images, imagesLength, currentImageIndex);
   }
 
   // Function to navigate to the previous image
   function prevImage() {
     currentImageIndex = (currentImageIndex - 1 + imagesLength) % imagesLength;
-    console.log("Previous image index:", currentImageIndex); // Add this line
-    const nextImage = images[currentImageIndex];
+    const prevImage = images[currentImageIndex];
   
     // Get attributes of the next image
-    const prevImagePath = nextImage.getAttribute("src");
-    const prevImageAlt = nextImage.getAttribute("alt");
+    const prevImagePath = prevImage.getAttribute("src");
+    const prevImageAlt = prevImage.getAttribute("alt");
     openModal(prevImagePath, prevImageAlt, images, imagesLength, currentImageIndex);
   }
 

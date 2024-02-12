@@ -226,14 +226,18 @@ export async function displaySelProduct(post) {
     }
     postImg = document.createElement("img");
     const imgSrc = image.attributes.src.nodeValue;
+    const imgAlt = image.attributes.alt.nodeValue;
+    console.log(image.nextElementSibling);
     postImg.className = "blogCard-images";
-    const imageAlts = image.getAttribute("alt");
+    // const imageAlt = image.getAttribute("alt");
     postImg.src = imgSrc;
+    postImg.alt = imgAlt;
     postImg.addEventListener("click", function () {
       imagePath = image.getAttribute("src");
-      imageAlt = img1.getAttribute("alt");
+      imageAlt = image.nextElementSibling;
+      console.log(imagePath);
       currentImageIndex = index;
-      openModal(imagePath, imageAlts, images, imagesLength, currentImageIndex);
+      openModal(imagePath, imageAlt, images, imagesLength, currentImageIndex);
     });
 
     imagesDiv.appendChild(postImg);
