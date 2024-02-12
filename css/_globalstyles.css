@@ -64,6 +64,8 @@ h3 {
 }
 h4 {
     font-size: 1.1rem;
+    margin: 0.5rem;
+    padding-top: 1rem;
 }
 p {
     font-family: "Lato", "Montserrat",'Dosis', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -176,6 +178,15 @@ p {
     align-items: center;
     padding: 1rem;
     margin: 1rem auto;
+}
+.loaderAbsolute {
+    position: absolute;
+    background-color: var(--gray);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 /* 

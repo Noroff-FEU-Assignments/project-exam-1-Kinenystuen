@@ -182,9 +182,9 @@ header {
 
 .fa-circle-arrow-down_area {
     position: absolute;
-    transform: translate(-50%, -50%);
-    top: 90%;
+    bottom: 5%;
     left: 50%;
+    transform: translate(-50%, 50%);
 }
 .fa-circle-arrow-down {
     transition: transform 0.3s ease-in-out;
@@ -196,9 +196,9 @@ header {
     transform: scale(1.4);
 }
 @keyframes pulse {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(10px); }
-    100% { transform: translateY(0); }
+    0% { transform: translateY(0) translateX(-15px); }
+    50% { transform: translateY(-5px) translateX(-15px); }
+    100% { transform: translateY(0) translateX(-15px); }
 }
 
 .pulse {

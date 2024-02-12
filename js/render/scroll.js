@@ -65,7 +65,7 @@ export function scrollheader() {
         }
     });
 }
-if(document.querySelector("scrollheader")) {
+if(document.querySelector(".headerContainer")) {
     scrollheader();
 }
 

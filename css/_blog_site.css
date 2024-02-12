@@ -47,6 +47,7 @@
   z-index: 60;
   font-style: italic;
   font-size: 0.8rem;
+  padding: 0.2rem 1rem;
 }
 
 /* background cover overlay and img */
@@ -184,6 +185,7 @@
 
 .informationLine p {
   margin: 0.5rem 0 1rem;
+  gap: 1rem;
 }
 
 /* Categorie and tag area */
@@ -249,4 +251,8 @@ Comment section area
 }
 .cmtBox-text {
   margin: 1rem 0;
+}
+
+#sendMessageContainer {
+  display: block;
 }

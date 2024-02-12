@@ -101,6 +101,7 @@ export async function displaySelProduct(post) {
   postedBy.innerHTML = `Posted by: ${post._embedded.author[0].name}`;
   const published = document.createElement("p");
   published.innerHTML = `Published: ${formattedDate}`;
+  published.className = "teAlign";
 
   informationPost.appendChild(postedBy);
   informationPost.appendChild(published);
@@ -257,107 +258,3 @@ export async function displaySelProduct(post) {
   // selPostContainer.appendChild(tagcatArea);
 }
 
-export async function getComments(post) {
-  console.log(post);
-  const postId = post.id;
-  const url =
-    "https://www.kineon.no/wp-json/wp/v2/comments" + `?post=${postId}`;
-  try {
-    const responseC = await fetch(url);
-    if (!responseC.ok) {
-      throw new Error(`API request failed with status: ` + responseC.status);
-    }
-    const comments = await responseC.json();
-
-    displayComments(comments, postId);
-  } catch (error) {
-    console.log("Error selectedMovie: " + error);
-    return;
-  }
-}
-
-export async function displayComments(comments, postId) {
-  console.log(comments);
-  console.log(postId);
-
-  const containerComments = document.getElementById("containerComments");
-  containerComments.className = "containerComments";
-
-  const h2Cmt = document.getElementById("h2Cmt");
-  h2Cmt.innerHTML = `Comments (${comments.length})`;
-
-  const commentDiv = document.createElement("div");
-  commentDiv.className = "cmtBox";
-
-  if (comments.length === 0) {
-    const cmtPar = document.createElement(`p`);
-    cmtPar.innerText = "There is no comments yet on this post.";
-    commentDiv.appendChild(cmtPar);
-  } else {
-    comments.forEach(function (comment) {
-      const cmtBoxInfo = document.createElement("div");
-      cmtBoxInfo.className = "cmtBox-info";
-      const cmtBoxInfoH3 = document.createElement("h3");
-      cmtBoxInfoH3.className = "cmtBox-info_h3";
-      cmtBoxInfoH3.innerHTML = comment.author_name;
-      const cmtBoxInfoP = document.createElement("p");
-      cmtBoxInfoP.className = "cmtBox-info_p";
-      const formattedDate = new Date(comment.date).toLocaleDateString("en-US", {
-        day: "numeric",
-        month: "long",
-        year: "numeric",
-      });
-      cmtBoxInfoP.innerHTML = formattedDate;
-      cmtBoxInfo.appendChild(cmtBoxInfoH3);
-      cmtBoxInfo.appendChild(cmtBoxInfoP);
-      const cmtBoxText = document.createElement("p");
-      cmtBoxText.innerHTML = comment.content.rendered;
-      cmtBoxText.className = "cmtBox-text";
-      commentDiv.appendChild(cmtBoxInfo);
-      commentDiv.appendChild(cmtBoxText);
-    });
-  }
-
-  // console.log(commentDiv);
-  containerComments.appendChild(commentDiv);
-
-  function handleSubmit(event) {
-    event.preventDefault();
-
-    // Retrieve user input values
-    const name = document.getElementById("name").value;
-    const email = document.getElementById("email").value;
-    const comment = document.getElementById("comment").value;
-
-    const commentData = {
-      author_name: name,
-      author_email: email,
-      content: comment,
-      post: postId,
-    };
-
-    // Send comment data to WordPress REST API
-    fetch("https://kineon.no/wp-json/wp/v2/comments", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(commentData),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to post comment");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        console.log("Comment posted successfully:", data);
-      })
-      .catch((error) => {
-        console.error("Error posting comment:", error);
-      });
-  }
-  document
-    .getElementById("commentForm")
-    .addEventListener("submit", handleSubmit);
-}

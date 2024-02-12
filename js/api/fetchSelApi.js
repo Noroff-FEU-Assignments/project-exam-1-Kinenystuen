@@ -1,4 +1,5 @@
-import { displaySelProduct, getComments } from "../display/displaySelPost.js";
+import { displaySelProduct } from "../display/displaySelPost.js";
+import { getComments } from "../form/comment.js";
 
 // Finds the id in the queryString
 const queryString = document.location.search;

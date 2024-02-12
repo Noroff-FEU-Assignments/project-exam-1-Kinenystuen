@@ -117,28 +117,56 @@
         <section class="content_wrap section_padding bgWhite margin_bottom2rem">
             <div class="padding1rem">
                 <div>
-                    <h2 id="h2Cmt">Comments:</h2>
+                    <h3 id="h3Cmt">Comments:</h3>
                     <div class="line"></div>
                 </div>
                 <div id="containerComments">
-                </div>
-                <!-- <div class="containerComments">
-                    <div class="cmtBox">
-                        <div class="cmtBox-info">
-                            <h3 class="cmtBox-info_h3">Kari</h3>
-                            <p class="cmtBox-info_p">Published: 01.02.24</p>
-                        </div>
-                        <p class="cmtBox-text">Dette her så sykt koselig ut, må dra dit engang!</p>
+                    <div class="loaderArea">
+                        <div class="loader"></div>
                     </div>
-                </div> -->
-                <form id="commentForm">
-                    <input type="text" id="name" placeholder="Your Name" autocomplete="name">
-                    <input type="email" id="email" placeholder="Your Email" autocomplete="email">
-                    <textarea id="comment" placeholder="Your Comment"></textarea>
-                    <button type="submit">Post Comment</button>
+                </div>
+                <form id="commentForm" class="">
+                    <h4>Leave a comment</h4>
+                    <div class="flex">
+                        <div class="formFill formFill-name">
+                            <label for="name" class="form-label">
+                                <span>Name</span>
+                                <span class="instruction">(Minimun 3 characters)</span>
+                                <span class="validIcon validIcon-name" data-visible="false">
+                                    <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
+                                </span>
+                            </label>
+                            <input class="form-input" type="text" id="name" name="name" placeholder="Name" autocomplete="name">
+                            <div id="name-error" class="formError">Please enter your name. Minimum 3 characters.</div>
+                        </div>
+                        <div class="formFill formFill-email">
+                            <label class="form-label" for="email">
+                                <span>E-mail</span>
+                                <span class="instruction">(Valid e-mail required)</span>
+                                <span class="validIcon validIcon-email" data-visible="false">
+                                    <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
+                                </span>
+                            </label>
+                            <input class="form-input" type="email" id="email" name="email" placeholder="Email" autocomplete="email">
+                            <div class="formError" id="email-error">Please enter a valid e-mail.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="formFill formFill-message">
+                        <label class="form-label" for="message">
+                            <span>Message</span>
+                            <span class="instruction">(Minimun 5 characters)</span>
+                            <span class="validIcon validIcon-message" data-visible="false">
+                                <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
+                            </span>
+                        </label>
+                        <textarea class="form-textarea" id="comment" name="message" rows="10" placeholder="Type your comment..."></textarea>
+                        <div class="formError" id="message-error">Your message must be minimum 5 characters long.
+                        </div>
+                    </div>
+                    <button class="sendButton" id="postComment" type="submit">Post Comment</button>
                 </form>
-                
-                
+                <div id="publishedCommentContainer" class="padding1rem hidden_element"><p>Comment published successfully!</p></div>
             </div>
             
         </section>
