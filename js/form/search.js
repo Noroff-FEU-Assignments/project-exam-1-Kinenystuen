@@ -41,6 +41,7 @@ window.onload = async function () {
   }
   removeSearch.addEventListener("click", function() {
     const newUrl = baseUrl + posts;
+    filterResult.innerHTML = "";
     fetchApi(newUrl);
   })
 };
