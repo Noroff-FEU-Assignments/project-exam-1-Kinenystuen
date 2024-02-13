@@ -341,3 +341,22 @@ p {
     border-radius: 6px;
     object-fit: cover;
 }
+
+/* map Kvittjønnan */
+.mapKvitArea {
+    display: flex;
+    width: 80%;
+    height: auto;
+    height: fit-content;
+    margin: 3rem auto;
+    max-width: 1600px;
+    border-radius: 1rem;
+
+}
+.mapKvit {
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 6px;
+    height: 70vh;
+
+}
