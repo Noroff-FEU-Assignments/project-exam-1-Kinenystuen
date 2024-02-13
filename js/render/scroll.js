@@ -112,6 +112,7 @@ if (document.getElementById("sectionInfo")) {
 
 
 // Arrow up
+//<div id="arrowUpButton" title="Go back up">&#8593;</div>
 if (document.getElementById("arrowUpButton")) {
     window.addEventListener("scroll", function() {
         var arrowUpButton = document.getElementById("arrowUpButton");

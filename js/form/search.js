@@ -37,10 +37,12 @@ window.onload = async function () {
     postsContainer.innerHTML = "";
     filterResult.innerHTML = `Search result for "${searchValue}"`;
     filterResult.appendChild(removeSearch);
-    await fetchApi(newUrl);
+    setTimeout(async () => {
+        await fetchApi(newUrl);
+      }, 500); // to be sure that this fetches last
   }
 
-  document
+ document
     .querySelector(".removeSearch")
     .addEventListener("click", function () {
       const newUrl = baseUrl + posts;
