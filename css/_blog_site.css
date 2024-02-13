@@ -18,6 +18,7 @@
   min-width: 50%;
   margin: 0 auto;
   z-index: 2;
+  cursor: pointer;
 }
 
 .blogCard-images {
@@ -143,6 +144,28 @@
   text-decoration: none;
   cursor: pointer;
 }
+/* arrows */
+.MArrow {
+  position: absolute;
+  top: 50%;
+  background: none;
+  columns: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid var(--dark_black);
+}
+.MRight {
+  right: 5%;
+}
+.MLeft {
+  left: 5%;
+}
+.MArrow:hover {
+  background-color: var(--black) 0.0;
+  border: 2px solid var(--green_light);
+}
+
 
 /* Styles for the blog images */
 .blog-image {
@@ -289,13 +312,14 @@ Comment section area
   justify-content: start;
   align-items: center;
   margin: 0.5rem 1rem;
+  padding: 0;
 }
-#removeSearch {
+.removeSearch {
   cursor: pointer;
   margin: 0 1rem ;
-  margin-left: 1rem;
+  margin-right: 1rem;
   font-size: 1rem;
-  padding: 0.4rem;
+  padding: 0.4rem 1rem;
   border-bottom: 2px solid var(--creamwhite);
 }
 .removeSearch:hover {

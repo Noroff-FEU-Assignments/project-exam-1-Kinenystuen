@@ -189,7 +189,7 @@ input.search-input::-webkit-search-cancel-button, input.search-inputH::-webkit-s
 .sectionContact {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: start;
     gap: 3rem;
     padding: 1rem;
     margin-bottom: 2rem;

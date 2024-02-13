@@ -140,7 +140,7 @@ export async function showLessPosts() {
 
   const lessPostDiv = document.createElement(`div`);
   lessPostsButton = document.createElement(`button`);
-  lessPostsButton.innerText = "Load less posts";
+  lessPostsButton.innerText = "Show less posts";
   lessPostsButton.style.display = `none`;
   lessPostsButton.className = "lessPostsButton";
 

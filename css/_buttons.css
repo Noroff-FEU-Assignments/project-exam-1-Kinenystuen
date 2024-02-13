@@ -1,5 +1,5 @@
 
-button {
+button, .buttonAll {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,7 @@ button {
     text-transform: uppercase;
     font-family: "Lato";
 }
-button:hover {
+button:hover, .buttonAll:hover {
     background-color: var(--green_light);
     border: 1px solid var(--dark_black);
     color: var(--black);

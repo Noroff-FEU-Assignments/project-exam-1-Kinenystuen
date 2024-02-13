@@ -21,6 +21,7 @@ export async function searchFunction() {
 window.onload = async function () {
   const postsContainer = document.querySelector(".postsContainer");
   const filterResult = document.getElementById("filterResult");
+
   const baseUrl = "https://www.kineon.no/wp-json/";
   const posts = "wp/v2/posts";
   const removeSearch = document.createElement("p");
@@ -32,21 +33,23 @@ window.onload = async function () {
 
   // Check if there's a search value in local storage
   if (searchValue) {
+    // remove the item from local storage
     localStorage.removeItem("searchValue");
     const newUrl = baseUrl + posts + `?search=${searchValue}`;
     postsContainer.innerHTML = "";
     filterResult.innerHTML = `Search result for "${searchValue}"`;
     filterResult.appendChild(removeSearch);
     setTimeout(async () => {
-        await fetchApi(newUrl);
-      }, 500); // to be sure that this fetches last
+      await fetchApi(newUrl);
+    }, 500); // to be sure that this fetches last
   }
-
- document
-    .querySelector(".removeSearch")
-    .addEventListener("click", function () {
-      const newUrl = baseUrl + posts;
-      fetchApi(newUrl);
-      filterResult.innerHTML = "";
-    });
+  if (document.querySelector(".removeSearch")) {
+    document
+      .querySelector(".removeSearch")
+      .addEventListener("click", function () {
+        const newUrl = baseUrl + posts;
+        fetchApi(newUrl);
+        filterResult.innerHTML = "";
+      });
+  }
 };

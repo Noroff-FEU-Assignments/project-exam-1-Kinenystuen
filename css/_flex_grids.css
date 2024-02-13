@@ -66,7 +66,7 @@
 /* CSS for Gallery Grid */
 .gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 16px;
 }
 
@@ -74,6 +74,7 @@
 .blogCard-images {
     width: 100%;
     height: auto;
+    max-height: calc(var(--vh, 1vh) * 50);
     cursor: pointer;
     border-radius: 8px;
     transition: transform 0.3s ease-in-out;
@@ -83,8 +84,3 @@
     transform: scale(1.02);
 }
 
-.sectionContact {
-    display: flex;
-    flex-direction: row;
-    float: 1;
-}

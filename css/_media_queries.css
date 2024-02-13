@@ -111,6 +111,28 @@ Content:
         width: 100%;
         padding: 1rem;
     }
+    /* arrows modal */
+    .MArrow {
+        position: absolute;
+        top: 50%;
+        background: none;
+        columns: var(--white);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: 2px solid var(--dark_black);
+        background-color: var(--black_lighter);
+      }
+    .MArrow:hover {
+        border: 2px solid var(--dark_black);
+        background-color: var(--black_lighter);
+    }
+      .MRight {
+        right: 3%;
+      }
+      .MLeft {
+        left: 3%;
+      }
 }
 
 @media (max-width: 500px) {

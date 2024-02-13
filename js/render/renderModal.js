@@ -1,10 +1,14 @@
-
+/*
+<button class="arrow right" control-id="ControlID-2">❯</button> 
+*/
 
 let modal = "";
 export async function openModal(imageSrc, imageAlt, images, imagesLength, currentImageIndex) {
   modal = document.getElementById("imageModal");
   const modalImage = document.getElementById("modalImage");
   const captionText = document.getElementById(`caption`);
+  const leftArrow = document.querySelector(".MArrow.MLeft");
+  const rightArrow = document.querySelector(".MArrow.MRight");
 
   // checks is there is alt text for the image
   if (!imageAlt) {
@@ -42,6 +46,12 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
   // If else to check is the modal is open
   // Eventlistener for moving between the images
   if (modal.classList.contains("modalActive")) {
+    leftArrow.addEventListener("click", function() {
+      prevImage();
+    });
+    rightArrow.addEventListener("click", function() {
+      nextImage();
+    });
     document.addEventListener("keydown", function (event) {
       if (event.key === "ArrowRight") {
         nextImage();
