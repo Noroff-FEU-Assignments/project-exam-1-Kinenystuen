@@ -1,9 +1,11 @@
 
 .formContainer {
+    flex: 2;
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 500px;
+    min-width: 50%;
+    /* max-width: 500px; */
     margin: auto;
 }
 .commentForm {
@@ -97,14 +99,14 @@
 
 
 
-.select-form, .search-input {
+.select-form, .search-input, .search-inputH {
     padding: 0.4rem 0.5rem;
     margin: 0.2rem;
     border-radius: 6px;
     font-size: 0.9rem;
     border: 2px solid var(--gray);
 }
-.select-form:focus, .search-input:focus {
+.select-form:focus, .search-input:focus, .search-inputH:focus {
     border: 2px solid var(--green_light);
 }
 
@@ -131,13 +133,45 @@
     background-color: var(--white);
     border-bottom: 2px solid var(--green_light);
 }
+.searchH {
+    margin-right: 1rem;
+    margin-top: 0.2rem;
+}
+.search-inputH {
+    margin: 0.1rem;
+    margin-left: 2%;
+    border: 0;
+    border-radius: 6px;
+    padding-left: 1rem;
+    background-image: url(/icons/magnifying-glass-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 1.2rem;
+    background-position: 98%;
+    width: 1rem;
+    background-color: var(--creamwhite) 0.0;
+    outline: none;
+    height: 100%;
+}
+.search-inputH:onclick {
+    margin: 0rem;
+    width: 12rem;
+    background-color: var(--white);
+}
+
 /* Increase specificity */
 input.search-input:focus {
     width: 12rem;
     background-color: var(--white);
     outline: 1px solid var(--green_light);
 }
-input.search-input::-webkit-search-cancel-button {
+input.search-inputH:focus {
+    background-position: 100%;
+    margin: 0rem;
+    width: 12rem;
+    background-color: var(--white);
+    border: 2px solid var(--green_light);
+}
+input.search-input::-webkit-search-cancel-button, input.search-inputH::-webkit-search-cancel-button {
     -webkit-appearance: none;
 }
 
@@ -148,4 +182,22 @@ input.search-input::-webkit-search-cancel-button {
     padding: 0.4rem 0.5rem;
     margin: 0.2rem;
     margin-right: 0;
+}
+
+
+/* contact form */
+.sectionContact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 1rem;
+    margin-bottom: 2rem;
+    margin-top: 2rem;
+}
+.contact-info_div {
+    background-color: var(--white);
+    border-radius: 6px;
+    width: 80%;
+    padding: 3rem;
 }

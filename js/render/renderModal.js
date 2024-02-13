@@ -10,7 +10,6 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
   if (!imageAlt) {
     //imageAlt = `No caption`;
   }
-
   modal.style.display = "block";
   modal.classList.add("modalActive");
   modalImage.src = imageSrc;
@@ -36,7 +35,7 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
   
     // Get attributes of the next image
     const prevImagePath = prevImage.getAttribute("src");
-    const prevImageAlt = prevImage.getAttribute("alt");
+    const prevImageAlt = prevImage.nextElementSibling.innerHTML;
     openModal(prevImagePath, prevImageAlt, images, imagesLength, currentImageIndex);
   }
 

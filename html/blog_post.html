@@ -9,8 +9,8 @@
     <script type="module" src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
     <meta name="author" content="Kine Odden Nystuen">
-    <meta name="Keywords" content="">
-    <meta name="describtion" content="">
+    <meta name="Keywords" content="Mountain life, Folldal, Kvitdalen, Kvittjønnan, mountains, nature, activities, cabins">
+    <meta name="describtion" content="Look into one of Mountain Life's blog posts.">
     <link rel="icon" href="/images/logo_mountain.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -165,21 +165,29 @@
                         </div>
                     </div>
                     <button class="sendButton" id="postComment" type="submit">Post Comment</button>
+                    <p id="newComment" class="newComment">Post another comment?</p>
                 </form>
-                <div id="publishedCommentContainer" class="padding1rem hidden_element"><p>Comment published successfully!</p></div>
+                <div id="publishedCommentContainer" class="padding1rem hidden_element">
+                    <div class="sendMessageSuccess">
+                        <div>
+                            <h3>Comment published successfully!</h3>
+                            <p>Thank you for showing interest in my blog.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
             
         </section>
         <div id="imageModal" class="modal">
             <span class="close">&times;</span>
-            <img id="modalImage" class="modal-content" alt="">
+            <img id="modalImage" class="modal-content" alt="Modal image">
             <div id="caption"></div>
         </div>
 
     </main>
     <footer class="footer">
         <div class="footer-imgdiv">
-            <img src="/images/blue_mountains.png" alt="">
+            <img src="/images/blue_mountains.png" alt="Mountain border line">
         </div>
         <div class="flexcenter height-fit-content ">
             <a href="/index.html">

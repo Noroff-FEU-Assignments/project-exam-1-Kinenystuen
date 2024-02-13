@@ -90,27 +90,25 @@ export async function validateForm(event) {
     validMessageIcon.setAttribute("data-visible", false);
   }
 
-  // // Add AJAX request to post form data to WordPress
-  // const formData = new FormData(contactForm);
-  // fetch("https://www.kineon.com/wp-json/custom-plugin/contact-form", {
-  //   method: "POST",
-  //   body: formData
-  // })
-  // .then(response => {
-  //   if (!response.ok) {
-  //     throw new Error("Failed to submit form");
-  //   }
-  //   return response.json();
-  // })
-  // .then(data => {
-  //   // Handle successful form submission
-  //   console.log("Form submitted successfully", data);
-  //   // Add your logic here to handle the response from WordPress
-  // })
-  // .catch(error => {
-  //   // Handle form submission error
-  //   console.error("Form submission error", error);
-  // });
+  // Add AJAX request to post form data to WordPress
+  const formData = new FormData(contactForm);
+  
+  try {
+    const response = await fetch("/php/contact.php", {
+      method: "POST",
+      body: formData
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to submit form", error);
+    }
+
+    const result = await response.text();
+    // Display success message
+    console.log(result);
+  } catch (error) {
+    console.error("Form submission error", error);
+  }
 
   function ifContactFormValid() {
     if (

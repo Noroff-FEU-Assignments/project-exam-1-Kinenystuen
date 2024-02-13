@@ -25,12 +25,13 @@ header {
 .header {
     background-color: var(--creamwhite);
     display: flex;
+    position: absolute;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     margin: 0 auto;
     position: fixed;
-    top: 0;
+    top: o;
     z-index: 1;
 }
 
@@ -44,6 +45,9 @@ header {
     display: flex;
     list-style-type: none;
     gap: 0.5rem;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-menu-ul li {

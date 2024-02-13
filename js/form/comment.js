@@ -1,9 +1,8 @@
-/* 
-Comments sections 
+/*
+Comments sections
 */
 
 export async function getComments(post) {
-  console.log(post);
   const postId = post.id;
   const url = `https://www.kineon.no/wp-json/wp/v2/comments?post=${postId}`;
   try {
@@ -31,7 +30,6 @@ export async function displayComments(comments, postId) {
       }
       const updatedComments = await response.json();
       await renderComments(updatedComments);
-      console.log(updatedComments);
     } catch (error) {
       console.error("Error updating comments:", error);
     }
@@ -55,15 +53,6 @@ export async function displayComments(comments, postId) {
     } else {
       containerComments.innerHTML = "";
       comments.reverse().forEach(function (comment) {
-        const commentDiv = document.createElement("div");
-        commentDiv.className = "cmtBox";
-        const cmtBoxInfo = document.createElement("div");
-        cmtBoxInfo.className = "cmtBox-info";
-        const cmtBoxInfoH3 = document.createElement("h4");
-        cmtBoxInfoH3.className = "cmtBox-info_h3";
-        cmtBoxInfoH3.innerHTML = comment.author_name;
-        const cmtBoxInfoP = document.createElement("p");
-        cmtBoxInfoP.className = "cmtBox-info_p";
         const formattedDate = new Date(comment.date).toLocaleDateString(
           "en-US",
           {
@@ -72,15 +61,85 @@ export async function displayComments(comments, postId) {
             year: "numeric",
           }
         );
-        cmtBoxInfoP.innerHTML = formattedDate;
-        cmtBoxInfo.appendChild(cmtBoxInfoH3);
-        cmtBoxInfo.appendChild(cmtBoxInfoP);
-        const cmtBoxText = document.createElement("p");
-        cmtBoxText.innerHTML = comment.content.rendered;
-        cmtBoxText.className = "cmtBox-text";
-        commentDiv.appendChild(cmtBoxInfo);
-        commentDiv.appendChild(cmtBoxText);
-        containerComments.appendChild(commentDiv);
+        // Check if the comment has a parent
+        if (comment.parent !== 0) {
+          // Find the parent comment element
+          const parentCommentDiv = document.getElementById(
+            "comment-" + comment.parent
+          );
+
+          if (parentCommentDiv) { // create reply area
+            // Create a new comment div for the reply
+            const replyDiv = document.createElement("div");
+            replyDiv.className = "cmtBox_reply";
+            replyDiv.id = "comment-" + comment.id;
+            // Create a div area for name and date
+            const replyInfoDiv = document.createElement("div");
+            replyInfoDiv.className = "cmtBox-info";
+
+            // Create elements for the reply content
+            const replyAuthor = document.createElement("h4");
+            replyAuthor.className = "cmtBox-info_h5";
+            replyAuthor.innerHTML = comment.author_name + " replied ";
+            // Create date element
+            const replyInfoDate = document.createElement("p");
+            replyInfoDate.className = "cmtBox-info_p";
+            replyInfoDate.innerHTML = formattedDate;
+
+            // Append elements to info div
+            replyInfoDiv.appendChild(replyAuthor);
+            replyInfoDiv.appendChild(replyInfoDate);
+
+            const replyText = document.createElement("p");
+            replyText.className = "cmtBox-info_p-reply";
+            replyText.innerHTML = comment.content.rendered;
+
+            // Append elements to the reply div
+            replyDiv.appendChild(replyInfoDiv);
+            replyDiv.appendChild(replyText);
+
+            // Append the reply div to the parent comment div
+            parentCommentDiv.appendChild(replyDiv);
+          }
+        } else {
+          // author img
+          // const authorImg = document.createElement("img");
+          // authorImg.src = comment.author_avatar_urls['96']; //24, 48, 96
+
+          // Create new comment area
+          // Create elements for the comment content
+          const commentDiv = document.createElement("div");
+          commentDiv.className = "cmtBox";
+          commentDiv.id = "comment-" + comment.id;
+
+          // Create a div area for name and date
+          const infoDiv = document.createElement("div");
+          infoDiv.className = "cmtBox-info";
+
+          const commentAuthor = document.createElement("h4");
+          commentAuthor.className = "cmtBox-info_h4";
+          commentAuthor.innerHTML = comment.author_name;
+
+          // Create date element
+          const commentDate = document.createElement("p");
+          commentDate.className = "cmtBox-info_p";
+          commentDate.innerHTML = formattedDate;
+
+          // Append elements to info div
+          infoDiv.appendChild(commentAuthor);
+          infoDiv.appendChild(commentDate);
+
+          const commentText = document.createElement("p");
+          commentText.className = "cmtBox-info_p";
+          commentText.innerHTML = comment.content.rendered;
+
+          // Append elements to the comment div
+          // commentDiv.appendChild(authorImg);
+          commentDiv.appendChild(infoDiv);
+          commentDiv.appendChild(commentText);
+
+          containerComments.appendChild(commentDiv);
+        }
       });
     }
     // console.log(commentDiv);
@@ -108,7 +167,6 @@ export async function displayComments(comments, postId) {
     const comment = document.getElementById("comment");
     const messageError = document.getElementById("message-error");
     const validMessageIcon = document.querySelector(".validIcon-message");
-    console.log(comment);
     if (comment === "null") {
       comment.value = 0;
     }
@@ -119,6 +177,7 @@ export async function displayComments(comments, postId) {
     const publishedCommentContainer = document.getElementById(
       "publishedCommentContainer"
     );
+    const newComment = document.getElementById("newComment");
 
     // Loader div
     const loaderAbsolute = document.createElement("div");
@@ -185,6 +244,20 @@ export async function displayComments(comments, postId) {
       checkLength(commentValue, 4) &&
       validateEmail(emailValue)
     ) {
+      name.value = ""; // Clear name input
+      email.value = ""; // Clear email input
+      comment.value = ""; // Clear comment input
+
+      // Reset error messages and icons
+      formFillName.classList.add("hidden_element");
+      nameError.classList.add("hidden_element");
+      validNameIcon.setAttribute("data-visible", false);
+      formFillEmail.classList.add("hidden_element");
+      emailError.classList.add("hidden_element");
+      validEmailIcon.setAttribute("hidden_element", false);
+      formFillMessage.classList.add("hidden_element");
+      messageError.classList.add("hidden_element");
+      validMessageIcon.setAttribute("data-visible", false);
       try {
         // Send comment data to WordPress REST API
         const response = await fetch(
@@ -199,10 +272,12 @@ export async function displayComments(comments, postId) {
         );
         if (!response.ok) {
           throw new Error("Failed to post comment");
+        } else {
+          console.log("Comment posted successfully:", commentData);
+          commentForm.innerHTML = ``;
+          publishedCommentContainer.classList.remove("hidden_element");
         }
-        console.log("Comment posted successfully:", commentData);
         updateComments();
-        publishedCommentContainer.classList.remove("hidden_element");
       } catch (error) {
         console.error("Error posting comment:", error);
       }
@@ -213,8 +288,41 @@ export async function displayComments(comments, postId) {
   document
     .getElementById("commentForm")
     .addEventListener("submit", handleSubmit);
-
   renderComments(comments);
+}
+if (document.getElementById("newComment")) {
+  functionNewComment();
+}
+
+async function functionNewComment() {
+  const newComment = document.getElementById("newComment");
+
+  newComment.addEventListener("click", function () {
+    const formFillName = document.querySelector(".formFill-name");
+    const nameError = document.getElementById("name-error");
+    const validNameIcon = document.querySelector(".validIcon-name");
+    const formFillEmail = document.querySelector(".formFill-email");
+    const emailError = document.getElementById("email-error");
+    const validEmailIcon = document.querySelector(".validIcon-email");
+    const formFillMessage = document.querySelector(".formFill-message");
+    const messageError = document.getElementById("message-error");
+    const validMessageIcon = document.querySelector(".validIcon-message");
+    const sectionContact = document.querySelector(".sectionContact");
+    const submitButton = document.querySelector(".sendButton");
+
+    submitButton.innerHTML = "Post comment";
+    newComment.style.display = "none";
+
+    formFillName.classList.remove("hidden_element");
+    nameError.classList.remove("hidden_element");
+    validNameIcon.setAttribute("data-visible", false);
+    formFillEmail.classList.remove("hidden_element");
+    emailError.classList.remove("hidden_element");
+    validEmailIcon.setAttribute("data-visible", false);
+    formFillMessage.classList.remove("hidden_element");
+    messageError.classList.remove("hidden_element");
+    validMessageIcon.setAttribute("data-visible", false);
+  });
 }
 
 // Function to check length of value in form

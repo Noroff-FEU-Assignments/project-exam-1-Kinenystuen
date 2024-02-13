@@ -18,7 +18,6 @@ export async function fetchApi(url) {
     } else {
       const posts = await response.json();
       totalPosts = response.headers.get("X-WP-Total");
-      console.log(posts);
 
       // checking currentUrl
       if (currentUrl.includes("blog_posts")) {

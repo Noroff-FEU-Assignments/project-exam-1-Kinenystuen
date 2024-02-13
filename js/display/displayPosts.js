@@ -93,10 +93,11 @@ export async function displayPosts(posts) {
   });
   loadedPostsLength = posts.length;
 
-  const visibleBlogPosts = document.querySelector(`.visibleBlogPosts`);
-  visibleBlogPosts.innerText =
-    `Visible blog posts: ` + loadedPostsLength + `/` + totalPosts;
+  const visibleBlogPosts = document.querySelectorAll(".visibleBlogPosts");
 
+  visibleBlogPosts.forEach((element) => {
+    element.innerText = `Visible blog posts: ${loadedPostsLength}/${totalPosts}`;
+  });
   showMorePosts();
   showLessPosts();
 }
@@ -115,10 +116,13 @@ export async function showMorePosts() {
   if (loadedPostsLength >= totalPosts) {
     morePostsButton.style.display = `none`;
   }
-
   morePostsButton.onclick = async function () {
     morePostsContainer.appendChild(loaderArea);
     loaderArea.style.display = "block";
+    loaderArea.classList.add("absC");
+    setTimeout(() => {
+      morePostsContainer.removeChild(loaderArea);
+    }, 2000);
 
     if (loadedPostsLength < totalPosts) {
       loadedPostsLength += 5;
@@ -166,12 +170,16 @@ export async function showLessPosts() {
   */
 
   const categoryDropdown = document.getElementById("category");
+  const filterResult = document.getElementById("filterResult");
   categoryDropdown.addEventListener("change", function (event) {
     if (event.target.value === "true") {
       newUrl = baseUrl + posts + embed + "?categories=true";
+      filterResult.innerHTML = "";
     } else {
       const catChosen = event.target.value;
+      const catName = event.target.selectedOptions[0].getAttribute("name");
       newUrl = baseUrl + posts + `?categories=${catChosen}`;
+      filterResult.innerHTML = `Category: ${catName}`;
     }
 
     postsContainer.innerHTML = "";
@@ -183,5 +191,9 @@ export async function showLessPosts() {
     const newUrl = baseUrl + posts + `?search=${searchInput.value}`;
     postsContainer.innerHTML = "";
     fetchApi(newUrl);
+    filterResult.innerHTML = `Search results for: "${searchInput.value}"`;
+    if (searchInput.value === "") {
+      filterResult.innerHTML = "";
+    }
   };
 }

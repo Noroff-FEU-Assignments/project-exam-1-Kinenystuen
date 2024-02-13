@@ -4,6 +4,8 @@ import { fetchSelApi } from "./api/fetchSelApi.js";
 
 import { dropdownMenu } from "./buttons/hamburger.js";
 
+import { searchFunction } from "./form/search.js";
+
 import { openModal } from "./render/renderModal.js";
 
 import { validateForm } from "./form/contact.js";

@@ -11,16 +11,21 @@ button {
     margin: 0.5rem;
     font-weight: 600;
 
-    background-color: var(--green_light);
+    background-color: var(--white);
     border: 1px solid var(--green_light);
+    color: inherit;
+    color: var(--black_lighter);
     text-transform: uppercase;
     font-family: "Lato";
 }
 button:hover {
-    background-color: var(--white);
+    background-color: var(--green_light);
     border: 1px solid var(--dark_black);
     color: var(--black);
 }
+button:active {
+    background-color: var(--green_light); /* Green */
+  }
 
 /* 
 Div button with transition 
@@ -66,7 +71,7 @@ Div button with transition
 }
 .divButton_a {
     position: relative;
-    z-index: 10;
+    z-index: 2;
     display: flex;
     text-transform: uppercase;
     text-decoration: none;

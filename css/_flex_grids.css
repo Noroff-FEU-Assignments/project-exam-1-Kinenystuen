@@ -82,3 +82,9 @@
 .blogCard-images:hover {
     transform: scale(1.02);
 }
+
+.sectionContact {
+    display: flex;
+    flex-direction: row;
+    float: 1;
+}

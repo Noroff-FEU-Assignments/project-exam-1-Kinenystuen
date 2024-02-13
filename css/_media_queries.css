@@ -25,11 +25,9 @@ Content:
 
 @media (max-width: 800px) {
     .header {
-        background-color: var(--creamwhite);
+        background-color: hidden;
         min-height: fit-content;
-        min-height: 6rem;
-        position: relative;
-        display: flex;
+        min-height: 4rem;
         flex-direction: column;
         align-items: flex-start;
         margin: 0rem;
@@ -103,11 +101,15 @@ Content:
         display: none;
     }
     /* container flex */
-    .sectionAbout, .flexCR {
+    .sectionAbout, .flexCR, .sectionContact {
         flex-direction: column;
     }
     .container-box_items h2 {
         text-align: center;
+    }
+    .contact-info_div {
+        width: 100%;
+        padding: 1rem;
     }
 }
 

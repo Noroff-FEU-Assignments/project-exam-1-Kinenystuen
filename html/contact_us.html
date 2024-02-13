@@ -9,8 +9,8 @@
     <script type="module" src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
     <meta name="author" content="Kine Odden Nystuen">
-    <meta name="Keywords" content="">
-    <meta name="describtion" content="">
+    <meta name="Keywords" content="Mountain life, Folldal, Kvitdalen, contact us">
+    <meta name="describtion" content="Reach out and let's start a conversation! Whether you have questions, feedback, or simply want to share your experiences, we're here to listen.">
     <link rel="icon" href="/images/logo_mountain.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -59,8 +59,8 @@
         </div>
     </header>
     <main class="fitPage">
-        <section class="sectionContact content_wrap flexcenter">
-            <div class="content_wrap">
+        <section class="sectionContact content_wrap">
+            <div class="contact-info_div">
                 <h1 class="h1Title">Contact info</h1>
                 <div class="line"></div>
                 <div>
@@ -72,10 +72,10 @@
                 </div>
             </div>
             <div class="formContainer">
-                <form action="" method="" class="contactForm" id="contactForm">
+                <form action="/php/contact.php" method="post" class="contactForm" id="contactForm">
                     <fieldset>
                         <legend>
-                            <h3>Send me an e-mail</h3>
+                            <h3>Contact form</h3>
                         </legend>
                         <div class="formFill formFill-name">
                             <label class="form-label" for="name">
@@ -97,7 +97,7 @@
                                     <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
                                 </span>
                             </label>
-                            <input class="form-input" type="text" id="email" name="email" placeholder="E-mail">
+                            <input class="form-input" type="email" id="email" name="email" placeholder="E-mail">
                             <div class="formError" id="email-error">Please enter a valid e-mail.</div>
                         </div>
 
@@ -147,7 +147,7 @@
     </main>
     <footer class="footer">
         <div class="footer-imgdiv">
-            <img src="/images/blue_mountains.png" alt="">
+            <img src="/images/blue_mountains.png" alt="Mountain border line">
         </div>
         <div class="flexcenter height-fit-content ">
             <a href="/index.html">

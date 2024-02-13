@@ -9,8 +9,8 @@
     <script type="module" src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
     <meta name="author" content="Kine Odden Nystuen">
-    <meta name="Keywords" content="">
-    <meta name="describtion" content="">
+    <meta name="Keywords" content="Mountain life, Folldal, Kvitdalen, Kvittjønnan, mountains, nature, activities, cabins">
+    <meta name="describtion" content="Discover the Stories: Dive into our collection of captivating blog posts that unravel the wonders of Kvitdalen, nestled amidst breathtaking nature and towering mountains. From thrilling adventures to serene explorations, our blog is your window into the heart of this picturesque landscape.">
     <link rel="icon" href="/images/logo_mountain.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -70,25 +70,29 @@
                     <div class="categoriesDiv">
                         <!-- <label for="category">Select a category:</label> -->
                         <select class="select-form" id="category" name="category">
-                            <option class="select-form_option" value="true">All categories</option>
-                            <option class="select-form_option" value="70">Activities</option>
-                            <option class="select-form_option" value="54">Animals</option>
-                            <option class="select-form_option" value="35">Cabins</option>
-                            <option class="select-form_option" value="75">Flora and fauna</option>
-                            <option class="select-form_option" value="71">Mountains</option>
-                            <option class="select-form_option" value="59">Nature</option>
-                            <option class="select-form_option" value="41">Plants</option>
-                            <option class="select-form_option" value="60">Seasons</option>
-                            <option class="select-form_option" value="1">Uncategorized</option>
+                            <option class="select-form_option" value="true" name="All categories">All categories</option>
+                            <option class="select-form_option" value="70" name="Activities">Activities</option>
+                            <option class="select-form_option" value="54" name="Animals">Animals</option>
+                            <option class="select-form_option" value="35" name="Cabins">Cabins</option>
+                            <option class="select-form_option" value="75" name="Flora and fauna">Flora and fauna</option>
+                            <option class="select-form_option" value="71" name="Mountains">Mountains</option>
+                            <option class="select-form_option" value="59" name="Nature">Nature</option>
+                            <option class="select-form_option" value="41" name="Plants">Plants</option>
+                            <option class="select-form_option" value="60" name="Seasons">Seasons</option>
+                            <option class="select-form_option" value="1" name="Uncategorized">Uncategorized</option>
                         </select>
                     </div>
                 </div>
+            </div>
+            <div>
+                <h3 id="filterResult" class="flex"></h3>
             </div>
             <div class="postsContainer grid400">
                 <div class="loaderArea">
                     <div class="loader"></div>
                 </div>
             </div>
+            <p class="visibleBlogPosts fontSize08 flexcenter"></p>
             <div class="postsButtonContainer">
                 <div class="lessPostsContainer">
                 </div>
@@ -100,7 +104,7 @@
     </main>
     <footer class="footer">
         <div class="footer-imgdiv">
-            <img src="/images/blue_mountains.png" alt="">
+            <img src="/images/blue_mountains.png" alt="Mountain border line">
         </div>
         <div class="flexcenter height-fit-content ">
             <a href="/index.html">
