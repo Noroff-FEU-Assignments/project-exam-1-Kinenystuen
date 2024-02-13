@@ -1,7 +1,7 @@
 import { fetchApi } from "../api/fetchApi.js";
 
 if (document.getElementById("search-inputH")) {
-    searchFunction();
+  searchFunction();
 }
 export async function searchFunction() {
   const searchInput = document.querySelector("#search-inputH");
@@ -23,7 +23,7 @@ window.onload = async function () {
   const filterResult = document.getElementById("filterResult");
   const baseUrl = "https://www.kineon.no/wp-json/";
   const posts = "wp/v2/posts";
-  const removeSearch = document.createElement("p")
+  const removeSearch = document.createElement("p");
   removeSearch.innerHTML = "Remove search";
   removeSearch.classList = "removeSearch";
 
@@ -39,9 +39,12 @@ window.onload = async function () {
     filterResult.appendChild(removeSearch);
     await fetchApi(newUrl);
   }
-  removeSearch.addEventListener("click", function() {
-    const newUrl = baseUrl + posts;
-    filterResult.innerHTML = "";
-    fetchApi(newUrl);
-  })
+
+  document
+    .querySelector(".removeSearch")
+    .addEventListener("click", function () {
+      const newUrl = baseUrl + posts;
+      fetchApi(newUrl);
+      filterResult.innerHTML = "";
+    });
 };
