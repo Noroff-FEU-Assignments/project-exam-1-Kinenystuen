@@ -108,6 +108,8 @@
     border-radius: 6px;
     font-size: 0.9rem;
     border: 2px solid var(--gray);
+    color: var(--black);
+    color: inherit;
 }
 .select-form:focus, .search-input:focus, .search-inputH:focus {
     border: 2px solid var(--green_light);
