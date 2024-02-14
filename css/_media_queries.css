@@ -253,6 +253,19 @@ Content:
         position:relative;
         height: calc(var(--vh, 1vh) * 100);
     }
+    /* Carousel home */
+    .arrow {
+        background-color: var(--white);
+      }
+    .arrow:hover {
+        background-color: var(--white);
+    }
+      .right {
+        right: 0;
+      }
+      .left {
+        left: 0;
+      }
 }
 
 @media (max-width:250px) {

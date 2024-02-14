@@ -8,9 +8,10 @@
     /* max-width: 500px; */
     margin: auto;
 }
-.commentForm {
+#commentForm {
+    width: fit-content;
     position: relative;
-    margin: 0;
+    margin: 0 auto;
 }
 #postComment {
     position: relative;
@@ -22,8 +23,10 @@
 }
 .formFill-error {
     /* border-left: 3px solid var(--red_dark); */
-    
     padding: 0.5rem;
+}
+.formFill-message {
+    width: 100%;
 }
 #name-error, #email-error, #subject-error, #message-error {
     margin:  0.5rem 0rem  0rem  0.2rem;

@@ -45,23 +45,14 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
 
   // If else to check is the modal is open
   // Eventlistener for moving between the images
-  if (modal.classList.contains("modalActive")) {
+  if (modal.style.display === "block") {
     leftArrow.addEventListener("click", function() {
       prevImage();
     });
     rightArrow.addEventListener("click", function() {
       nextImage();
     });
-    document.addEventListener("keydown", function (event) {
-      if (event.key === "ArrowRight") {
-        nextImage();
-      }
-      if (event.key === "ArrowLeft") {
-        prevImage();
-      }
-    });    
-  }else {
-    document.removeEventListener("keydown", function (event) {
+    document.addEventListener("keydown", function handleKeyPress(event) {
       if (event.key === "ArrowRight") {
         nextImage();
       }
@@ -69,6 +60,8 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
         prevImage();
       }
     });
+  }else {
+    document.removeEventListener("keydown", handleKeyPress);
   }
   
   // Create touch event listener for swiping between images
