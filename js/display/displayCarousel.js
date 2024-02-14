@@ -48,7 +48,7 @@ export async function displayCarousel(posts) {
       card.href = `/html/blog_post.html?id=${post.id}`;
       const image = document.createElement("img");
       image.src = imageElement;
-      image.alt = post.title.rendered;
+      image.alt = `Image for blog post about ${post.title.rendered}`;
       image.className = "carousel-img";
       const title = document.createElement("h3");
       title.className = "carousel-title";
@@ -82,7 +82,6 @@ export async function displayCarousel(posts) {
       }px)`;
       shownCards = shownCards + cardsVisible;
     }
-    console.log(shownCards);
     if (currentIndex === 0) {
       leftArrow.style.display = "none";
     } else {

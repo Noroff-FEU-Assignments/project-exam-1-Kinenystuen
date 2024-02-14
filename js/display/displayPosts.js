@@ -30,13 +30,15 @@ export async function displayPosts(posts) {
     const paragraph = paragraphs[0].innerHTML;
 
     /*Create card div*/
-    const cardDiv = document.createElement(`div`);
+    const cardDiv = document.createElement(`a`);
     cardDiv.className = "card";
+    cardDiv.href = `/html/blog_post.html?id=${post.id}`
 
     // if there is a img it will load otherwise give a message that it dosnt exist
     if (images) {
       cardImg.className = "cardImg";
       cardImg.src = image;
+      cardImg.alt = `Image for blog post about ${post.title.rendered}`;
       cardDiv.append(cardImg);
     } else {
       const noImage = document.createElement("p");
