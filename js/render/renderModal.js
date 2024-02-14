@@ -45,7 +45,7 @@ export async function openModal(imageSrc, imageAlt, images, imagesLength, curren
 
   // If else to check is the modal is open
   // Eventlistener for moving between the images
-  if (modal.style.display === "block") {
+  if (modal.classList.contains("modalActive")) {
     leftArrow.addEventListener("click", function() {
       prevImage();
     });
