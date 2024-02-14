@@ -90,13 +90,27 @@ export async function validateForm(event) {
     validMessageIcon.setAttribute("data-visible", false);
   }
 
-  // Add AJAX request to post form data to WordPress
-  const formData = new FormData(contactForm);
-  
+  const nameValue = fullName.value;
+  const emailValue = email.value;
+  const subjectValue = subjectId.value;
+  const contentValue = messageId.value;
+
+  // Prepare comment data
+  const contactData = {
+    author_name: nameValue,
+    author_email: emailValue,
+    subject: subjectValue,
+    content: contentValue,
+  };
+  console.log(contactData);
+
+  const url =
+    "https://kineon.no/wp-json/contact-form-7/v1/contact-forms/197/feedback";
+
   try {
-    const response = await fetch("/php/contact.php", {
+    const response = await fetch(url, {
       method: "POST",
-      body: formData
+      body: JSON.stringify(contactData),
     });
 
     if (!response.ok) {
@@ -118,7 +132,7 @@ export async function validateForm(event) {
       validateEmail(email.value)
     ) {
       // Add loader
-      console.log("clicked")
+      console.log("clicked");
       sectionContact.appendChild(loaderBackground);
       loader.style.display = "block";
       setTimeout(() => {
@@ -143,9 +157,8 @@ export async function validateForm(event) {
           behavior: "smooth", // Use smooth scrolling
         });
       }, 2000);
-    }
-    else {
-        console.log("something went wrong")
+    } else {
+      console.log("something went wrong");
     }
   }
   ifContactFormValid();
@@ -169,5 +182,5 @@ function validateEmail(email) {
 const currentUrl = window.location.href;
 
 if (currentUrl.includes("contact_us")) {
-    contactForm.addEventListener("submit", validateForm);
+  contactForm.addEventListener("submit", validateForm);
 }
