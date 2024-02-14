@@ -91,6 +91,7 @@ export async function displayPosts(posts) {
 
     cardDiv.appendChild(cardImg);
     cardDiv.appendChild(cardTextContainer);
+    
     postsContainer.appendChild(cardDiv);
   });
   loadedPostsLength = posts.length;

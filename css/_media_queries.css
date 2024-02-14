@@ -230,6 +230,27 @@ Content:
     .cardText {
         width: 100%;
     }
+    /* search icon */
+    .search-input {
+        margin-left: 2%;
+        padding-left: 1rem;
+        background-image: url(/icons/magnifying-glass-solid.svg);
+        background-repeat: no-repeat;
+        background-size: 1.2rem;
+        background-position: 98%;
+        width: 2rem;
+        background-color: var(--creamwhite);
+        border-color: var(--creamwhite);
+        border-bottom: hidden;
+    }
+    .search-input:onclick {
+        width: 12rem;
+        background-color: var(--white);
+        border-bottom: 2px solid var(--green_light);
+    }
+    .search-input:hover {
+        width: fit-content;
+    }
 
     /* grid and flexes change */
     .grid400 {
