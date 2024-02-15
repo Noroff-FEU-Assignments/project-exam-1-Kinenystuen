@@ -3,6 +3,7 @@ import { fetchApi } from "../api/fetchApi.js";
 if (document.getElementById("search-inputH")) {
   searchFunction();
 }
+
 export async function searchFunction() {
   const searchInput = document.querySelector("#search-inputH");
 
