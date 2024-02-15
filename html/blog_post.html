@@ -9,7 +9,8 @@
     <script type="module" src="/js/index.js"></script>
     <script src="https://kit.fontawesome.com/c4698ad2a1.js" crossorigin="anonymous"></script>
     <meta name="author" content="Kine Odden Nystuen">
-    <meta name="Keywords" content="Mountain life, Folldal, Kvitdalen, Kvittjønnan, mountains, nature, activities, cabins">
+    <meta name="Keywords"
+        content="Mountain life, Folldal, Kvitdalen, Kvittjønnan, mountains, nature, activities, cabins">
     <meta name="describtion" content="Look into one of Mountain Life's blog posts.">
     <link rel="icon" href="/images/logo_mountain.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,8 +66,19 @@
         </div>
         <section class="content_wrap bgWhite ">
             <div class="selPostContainer">
-                <div class="loaderArea">
-                    <div class="loader"></div>
+                <div id="selPostHeader" class="card-area">
+                    <div class="loaderArea">
+                        <div class="loader"></div>
+                    </div>
+                </div>
+                <div>
+                    <p id="selPostName" class="fw-light"></p>
+                    <h1 id="h1Post" class="h1Post">Blog post</h1>
+                </div>
+                <div id="selPostContent" class="card-area">
+                    <div class="loaderArea">
+                        <div class="loader"></div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -92,7 +104,8 @@
                                     <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
                                 </span>
                             </label>
-                            <input class="form-input" type="text" id="name" name="name" placeholder="Name" autocomplete="name">
+                            <input class="form-input" type="text" id="name" name="name" placeholder="Name"
+                                autocomplete="name">
                             <div id="name-error" class="formError">Please enter your name. Minimum 3 characters.</div>
                         </div>
                         <div class="formFill formFill-email">
@@ -103,11 +116,12 @@
                                     <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
                                 </span>
                             </label>
-                            <input class="form-input" type="email" id="email" name="email" placeholder="Email" autocomplete="email">
+                            <input class="form-input" type="email" id="email" name="email" placeholder="Email"
+                                autocomplete="email">
                             <div class="formError" id="email-error">Please enter a valid e-mail.</div>
                         </div>
                     </div>
-                    
+
                     <div class="formFill formFill-message">
                         <label class="form-label" for="message">
                             <span>Message</span>
@@ -116,7 +130,8 @@
                                 <i class="fa-solid fa-circle-check" style="color: #7da87b;"></i>
                             </span>
                         </label>
-                        <textarea class="form-textarea" id="comment" name="message" rows="10" placeholder="Type your comment..."></textarea>
+                        <textarea class="form-textarea" id="comment" name="message" rows="10"
+                            placeholder="Type your comment..."></textarea>
                         <div class="formError" id="message-error">Your message must be minimum 5 characters long.
                         </div>
                     </div>
@@ -132,7 +147,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </section>
         <div id="imageModal" class="modal">
             <span class="close">&times;</span>

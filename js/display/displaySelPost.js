@@ -4,11 +4,14 @@ import { openModal } from "../render/renderModal.js";
 
 export async function displaySelProduct(post) {
   document.title = "Mountain Life | " + `${post.title.rendered}`;
-  //console.log(post);
-  const selPostContainer = document.querySelector(".selPostContainer");
-  clearHTML(selPostContainer);
-  const headerImgDiv = document.createElement(`div`);
-  headerImgDiv.className = "card-area";
+  // Header, content 
+  const selPostHeader = document.getElementById("selPostHeader");
+  const selPostContent = document.getElementById("selPostContent");
+
+  clearHTML(selPostHeader);
+  clearHTML(selPostContent);
+  // const headerImgDiv = document.createElement(`div`);
+  // headerImgDiv.className = "card-area";
   const cardDiv = document.createElement(`div`);
   cardDiv.classList.add("card-area", "padding1rem");
 
@@ -58,32 +61,30 @@ export async function displaySelProduct(post) {
     openModal(imagePath, imageAlts, images, imagesLength, currentImageIndex);
   });
 
-  // backgroundImg.appendChild(img1)
-
   postImg1.appendChild(img1);
   //cardDiv.appendChild(caption1);
   postImg1.appendChild(backgroundWrapper);
-  headerImgDiv.appendChild(postImg1);
-  headerImgDiv.appendChild(caption1);
+  selPostHeader.appendChild(postImg1);
+  selPostHeader.appendChild(caption1);
 
   // Create location and posts page link
-  const pageLocation = document.createElement("p");
-  pageLocation.className = "fw-light";
+  const selPostName = document.getElementById("selPostName");
   const postsLink = document.createElement("a");
   postsLink.href = "/html/blog_posts.html";
   postsLink.innerText = "Posts page";
   postsLink.className = "fw-light";
   postsLink.title = "Go to all posts page";
-  pageLocation.appendChild(postsLink); // Append the postsLink element
-  pageLocation.innerHTML += `  /  ${post.title.rendered}`; // Append the title as HTML string
-  cardDiv.appendChild(pageLocation);
+  selPostName.appendChild(postsLink); // Append the postsLink element
+  selPostName.innerHTML += `  /  ${post.title.rendered}`; // Append the title as HTML string
+  
 
   // Create blog title
-  const h1Post = document.createElement("h1");
+  const h1Post = document.getElementById("h1Post");
   h1Post.innerText = post.title.rendered;
   h1Post.className = "h1Post";
   const line = document.createElement("div");
   line.className = "line";
+  cardDiv.appendChild(selPostName);
   cardDiv.appendChild(h1Post);
   cardDiv.appendChild(line);
 
@@ -253,9 +254,7 @@ export async function displaySelProduct(post) {
 
   cardDiv.appendChild(imagesContainer);
   cardDiv.appendChild(tagcatArea);
-
-  selPostContainer.appendChild(headerImgDiv);
-  selPostContainer.appendChild(cardDiv);
+  selPostContent.appendChild(cardDiv);
   // selPostContainer.appendChild(imagesContainer);
   // selPostContainer.appendChild(tagcatArea);
 }
