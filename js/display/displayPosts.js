@@ -180,7 +180,7 @@ export async function showLessPosts() {
       filterResult.innerHTML = "";
     } else {
       const catChosen = event.target.value;
-      const catName = event.target.selectedOptions[0].getAttribute("name");
+      const catName = event.target.selectedOptions[0].getAttribute("id");
       newUrl = baseUrl + posts + `?categories=${catChosen}`;
       filterResult.innerHTML = `Category: ${catName}`;
     }
