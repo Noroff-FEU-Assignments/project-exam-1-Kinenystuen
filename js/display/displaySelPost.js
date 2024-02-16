@@ -152,7 +152,7 @@ export async function displaySelProduct(post) {
   categoryNames.forEach(function (category) {
     const catLinks = document.createElement("a");
     catLinks.className = "flex category-link";
-    catLinks.innerHTML = category.name;
+    catLinks.innerHTML = "- " + category.name;
     catLinks.id = category.id;
     catLinks.title = category.name;
     catP.appendChild(catLinks);
@@ -202,7 +202,7 @@ export async function displaySelProduct(post) {
   tagsNames.forEach(function (tags) {
     const tagLinks = document.createElement("a");
     tagLinks.className = "flex tag-link";
-    tagLinks.innerHTML = tags.name + `,`;
+    tagLinks.innerHTML = "-  " +tags.name;
     tagLinks.id = tags.id;
     tagLinks.title = tags.name;
     tagP.appendChild(tagLinks);
