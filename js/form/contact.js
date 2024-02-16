@@ -104,13 +104,18 @@ export async function validateForm(event) {
   };
   console.log(contactData);
 
-  const url =
-    "https://kineon.no/wp-json/contact-form-7/v1/contact-forms/197/feedback";
+  const url = "https://kineon.no/wp-json/wp/v2/pages/233#wpcf7-f197-o1";
+  const urlPost = "https://kineon.no/wp-json/contact-form-7/v1/contact-forms/197/feedback";
+
+  const formData = new FormData(contactForm);
+  formData.set("_wpcf7_unit_tag", "randomName");
+  formData.set("mc4wp_checkbox", "checked");
 
   try {
-    const response = await fetch(url, {
-      method: "POST",
-      body: JSON.stringify(contactData),
+    const response = await fetch(urlPost, {
+      method: 'POST',
+      body: formData,
+      // body: JSON.stringify(contactData),
     });
 
     if (!response.ok) {

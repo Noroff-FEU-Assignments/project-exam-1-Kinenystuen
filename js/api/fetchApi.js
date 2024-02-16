@@ -17,6 +17,7 @@ export async function fetchApi(url) {
       throw new Error(`API request failed with status: ` + response.status);
     } else {
       const posts = await response.json();
+      console.log(posts)
       totalPosts = response.headers.get("X-WP-Total");
 
       // checking currentUrl
