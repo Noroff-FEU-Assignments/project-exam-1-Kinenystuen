@@ -300,19 +300,19 @@ Content:
     }
 
     /* Carousel home */
-    .arrow {
+    .arrow, .SPArrow {
         background-color: var(--white);
     }
 
-    .arrow:hover {
+    .arrow:hover, .SPArrow:hover {
         background-color: var(--white);
     }
 
-    .right {
+    .right, .SPRight {
         right: 0;
     }
 
-    .left {
+    .left, .SPLeft {
         left: 0;
     }
 }

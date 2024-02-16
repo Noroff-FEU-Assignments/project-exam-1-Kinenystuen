@@ -19,3 +19,8 @@
 .bgDarkBrown {
     background-color: var(--dark_brown);
 }
+
+/* color */
+.light_green {
+    color: var(--green_light);
+}

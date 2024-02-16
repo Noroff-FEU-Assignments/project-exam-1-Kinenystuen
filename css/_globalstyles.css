@@ -155,7 +155,7 @@ p {
 }
 .line {
     height: 2px;
-    background-color: var(--dark_brown);
+    background-color: var(--gray_darker);
     width: 100%;
     border-radius: 1rem;
 }

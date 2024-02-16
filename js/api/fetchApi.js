@@ -28,7 +28,6 @@ export async function fetchApi(url) {
         currentUrl === window.location.origin + "/" ||
         currentUrl.includes("index.html")
       ) {
-        // displayCarousel(posts);
         displayCarousel(posts);
       }
 

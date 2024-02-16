@@ -31,10 +31,14 @@ window.onload = async function () {
 
   // Retrieve the search value from local storage
   const searchValue = localStorage.getItem("searchValue");
+  const storedCategoryDetails = JSON.parse(
+    localStorage.getItem("categoryDetails")
+  );
+  const selectElement = document.getElementById("category"); // the option select
+  const storedTagDetails = JSON.parse(localStorage.getItem("tagDetails"));
 
-  // Check if there's a search value in local storage
+  // searchValue display
   if (searchValue) {
-    // remove the item from local storage
     localStorage.removeItem("searchValue");
     const newUrl = baseUrl + posts + `?search=${searchValue}`;
     postsContainer.innerHTML = "";
@@ -43,6 +47,45 @@ window.onload = async function () {
     setTimeout(async () => {
       await fetchApi(newUrl);
     }, 500); // to be sure that this fetches last
+  }
+  
+  // category display
+  if (storedCategoryDetails) {
+    const categoryId = storedCategoryDetails.categoryId;
+    const categoryName = storedCategoryDetails.categoryName;
+    localStorage.removeItem("categoryDetails");
+    const newUrl = baseUrl + posts + `?categories=${categoryId}`;
+    console.log(newUrl);
+    postsContainer.innerHTML = "";
+    filterResult.innerHTML = `Category: ${categoryName}`;
+
+    // Finding the matching id
+    const options = selectElement.options;
+    for (let i = 0; i < options.length; i++) {
+      if (options[i].value === categoryId.toString()) {
+        options[i].selected = true;
+        break;
+      }
+    }
+    setTimeout(async () => {
+      await fetchApi(newUrl);
+    }, 500);
+  }
+
+  // tag display
+  if (storedTagDetails) {
+    const tagId = storedTagDetails.tagId;
+    const tagName = storedTagDetails.tagName;
+    localStorage.removeItem("tagDetails");
+    const newUrl = baseUrl + posts + `?tags=${tagId}`;
+    console.log(newUrl);
+    postsContainer.innerHTML = "";
+    filterResult.innerHTML = `Tag: ${tagName}`;
+    filterResult.appendChild(removeSearch);
+
+    setTimeout(async () => {
+      await fetchApi(newUrl);
+    }, 500);
   }
   if (document.querySelector(".removeSearch")) {
     document

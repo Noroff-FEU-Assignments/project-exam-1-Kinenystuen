@@ -4,7 +4,7 @@ import { openModal } from "../render/renderModal.js";
 
 export async function displaySelProduct(post) {
   document.title = "Mountain Life | " + `${post.title.rendered}`;
-  // Header, content 
+  // Header, content
   const selPostHeader = document.getElementById("selPostHeader");
   const selPostContent = document.getElementById("selPostContent");
 
@@ -72,11 +72,10 @@ export async function displaySelProduct(post) {
   const postsLink = document.createElement("a");
   postsLink.href = "/html/blog_posts.html";
   postsLink.innerText = "Posts page";
-  postsLink.className = "fw-light";
+  postsLink.className = "fw-light light_green";
   postsLink.title = "Go to all posts page";
   selPostName.appendChild(postsLink); // Append the postsLink element
   selPostName.innerHTML += `  /  ${post.title.rendered}`; // Append the title as HTML string
-  
 
   // Create blog title
   const h1Post = document.getElementById("h1Post");
@@ -125,18 +124,18 @@ export async function displaySelProduct(post) {
   // Tags and categories
   //
   const tagcatArea = document.createElement("div");
-  (tagcatArea.className = "tagcatArea"), "flex";
+  tagcatArea.className = "tagcatArea margin_R5p";
 
   // Create div to display categories
   const catArea = document.createElement("div");
-  (catArea.className = "catArea"), "flex";
+  catArea.className = "catArea margin_R5p";
   // Create p for tags
   const catPTitle = document.createElement("p");
   catPTitle.innerText = "Categories:";
-  (catPTitle.className = "catPTitle"), "flex";
+  catPTitle.className = "catPTitle margin_R5p";
 
   const catP = document.createElement("a");
-  (catP.className = "catP"), "flex";
+  catP.className = "catP margin_R5p";
 
   const categoryIds = post.categories;
 
@@ -145,17 +144,32 @@ export async function displaySelProduct(post) {
     const categoryUrl = `https://kineon.no/wp-json/wp/v2/categories/${categoryId}`;
     const categoryResponse = await fetch(categoryUrl);
     const categoryDetails = await categoryResponse.json();
-    return { id: categoryId, name: categoryDetails.name };
+    return { type: "category", id: categoryId, name: categoryDetails.name };
   });
 
   const categoryNames = await Promise.all(categoryPromises);
 
-  categoryNames.forEach(function (categorie) {
+  categoryNames.forEach(function (category) {
     const catLinks = document.createElement("a");
-    catLinks.className = "flex";
-    catLinks.innerHTML = categorie.name + `,`;
-    catLinks.id = categorie.id;
+    catLinks.className = "flex category-link";
+    catLinks.innerHTML = category.name;
+    catLinks.id = category.id;
+    catLinks.title = category.name;
     catP.appendChild(catLinks);
+
+    catLinks.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const categoryDetails = {
+        categoryId: event.target.id,
+        categoryName: event.target.title.trim(),
+      };
+
+      // Store category details in localStorage and then locate to blog_posts page
+      localStorage.setItem("categoryDetails", JSON.stringify(categoryDetails));
+
+      window.location.href = "/html/blog_posts.html";
+    });
   });
 
   catArea.appendChild(catPTitle);
@@ -164,14 +178,14 @@ export async function displaySelProduct(post) {
   // Create area for tags
   // Create div to display tags and categories
   const tagArea = document.createElement("div");
-  (tagArea.className = "catArea"), "flex";
+  tagArea.className = "catArea margin_R5p";
   // Create p for tags
   const tagPTitle = document.createElement("p");
   tagPTitle.innerText = "Tags:";
-  (tagPTitle.className = "catPTitle"), "flex";
+  tagPTitle.className = "catPTitle margin_R5p";
 
   const tagP = document.createElement("a");
-  (tagP.className = "catP"), "flex";
+  tagP.className = "catP margin_R5p";
 
   // Fetching categories
   const tagsIds = post.tags;
@@ -187,10 +201,25 @@ export async function displaySelProduct(post) {
   const tagsNames = await Promise.all(tagsPromises);
   tagsNames.forEach(function (tags) {
     const tagLinks = document.createElement("a");
-    tagLinks.className = "flex";
+    tagLinks.className = "flex tag-link";
     tagLinks.innerHTML = tags.name + `,`;
     tagLinks.id = tags.id;
+    tagLinks.title = tags.name;
     tagP.appendChild(tagLinks);
+
+    tagLinks.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const tagDetails = {
+        tagId: event.target.id,
+        tagName: event.target.title.trim(),
+      };
+
+      // Store tag details in localStorage and then locate to blog_posts page
+      localStorage.setItem("tagDetails", JSON.stringify(tagDetails));
+
+      window.location.href = "/html/blog_posts.html";
+    });
   });
 
   tagArea.appendChild(tagPTitle);
@@ -255,7 +284,4 @@ export async function displaySelProduct(post) {
   cardDiv.appendChild(imagesContainer);
   cardDiv.appendChild(tagcatArea);
   selPostContent.appendChild(cardDiv);
-  // selPostContainer.appendChild(imagesContainer);
-  // selPostContainer.appendChild(tagcatArea);
 }
-

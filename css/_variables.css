@@ -6,19 +6,18 @@
 
 :root {
     --creamwhite: #F8F8F8;
-    --graywhite: #ccc;
     --green_light: #7DA87B;
-    --green: #51804F;
     --blue_light: #8EB5C2;
     --black_lighter: #02111B;
     --dark_black: #222525;
-    --dark_brown: #403D39;
+    --gray_darker: #B0B0B0;
+    --dark_blue: #596D81;
+    
     --black: #000;
     --white: #fff;
     --gray: #D3D3D3;
-    --gray_darker: #B0B0B0;
-    --dark_brown: #403D39;
-    --red_dark: #6A041D; /* used for error /*  
+    
+    --red_dark: #6A041D; /* used for error */
 
     /* fonts */
     --epilogue: "Epilogue", system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;

@@ -133,7 +133,7 @@
     width: 12rem;
     background-color: var(--creamwhite);
     border-color: var(--creamwhite);
-    border-bottom: 2px solid var(--green_light);
+    border-bottom: 2px solid var(--gray);
 }
 .search-input:onclick {
     width: 12rem;

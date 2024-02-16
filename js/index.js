@@ -1,6 +1,7 @@
 
 import { fetchApi } from "./api/fetchApi.js";
 import { fetchSelApi } from "./api/fetchSelApi.js";
+import { fetchAllPosts } from "./api/fetchAllPosts.js";
 
 import { dropdownMenu } from "./buttons/hamburger.js";
 
