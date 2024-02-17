@@ -1,5 +1,6 @@
 // Form elements
 const contactForm = document.getElementById("contactForm");
+const urlPost = "https://formspree.io/f/xrgnqyyl";
 //name elements
 const formFillName = document.querySelector(".formFill-name");
 const fullName = document.getElementById("name");
@@ -104,31 +105,6 @@ export async function validateForm(event) {
   };
   console.log(contactData);
 
-  const url = "https://kineon.no/wp-json/wp/v2/pages/233#wpcf7-f197-o1";
-  const urlPost = "https://kineon.no/wp-json/contact-form-7/v1/contact-forms/197/feedback";
-
-  const formData = new FormData(contactForm);
-  formData.set("_wpcf7_unit_tag", "randomName");
-  formData.set("mc4wp_checkbox", "checked");
-
-  try {
-    const response = await fetch(urlPost, {
-      method: 'POST',
-      body: formData,
-      // body: JSON.stringify(contactData),
-    });
-
-    if (!response.ok) {
-      throw new Error("Failed to submit form", error);
-    }
-
-    const result = await response.text();
-    // Display success message
-    console.log(result);
-  } catch (error) {
-    console.error("Form submission error", error);
-  }
-
   function ifContactFormValid() {
     if (
       checkLength(fullName.value, 4) &&
@@ -137,36 +113,82 @@ export async function validateForm(event) {
       validateEmail(email.value)
     ) {
       // Add loader
-      console.log("clicked");
       sectionContact.appendChild(loaderBackground);
       loader.style.display = "block";
       setTimeout(() => {
+        submitForm();
         loader.style.display = "none";
         loaderBackground.style.display = "none";
-
-        sendMessageContainer.style.display = "block";
-        submitButton.setAttribute(
-          "style",
-          "color: #fff; background: #3a5964; border-color:#3a5964 "
-        );
-        submitButton.innerHTML = "Submitted";
-        legend.innerText = "Summary";
-        formInput.forEach((input) => {
-          input.style.border = "none";
-          input.disabled = true;
-        });
-        instruction.forEach((item) => (item.style.display = "none"));
-        messageInput.style.border = "none";
-        messageInput.disabled = true;
-        sendMessageContainer.scrollIntoView({
-          behavior: "smooth", // Use smooth scrolling
-        });
       }, 2000);
     } else {
       console.log("something went wrong");
     }
   }
   ifContactFormValid();
+}
+
+// Submit form function
+async function submitForm() {
+  const formData = new FormData(contactForm);
+  const url = contactForm.getAttribute("action");
+  const method = contactForm.getAttribute("method");
+  try {
+    const response = await fetch(url, {
+      method: method,
+      body: formData,
+      headers: {
+        Accept: "application/json",
+      },
+    });
+
+    if (!response.ok) {
+      throw new Error("Failed to submit form");
+    }
+
+    const result = await response.text();
+    // Display success message
+    console.log(result);
+    sendMessageContainer.style.display = "block";
+    submitButton.setAttribute(
+      "style",
+      "color: #fff; background: #3a5964; border-color:#3a5964 "
+    );
+    submitButton.innerHTML = "Submitted";
+    legend.innerText = "Summary";
+    formInput.forEach((input) => {
+      input.style.border = "none";
+      input.disabled = true;
+    });
+    instruction.forEach((item) => (item.style.display = "none"));
+    messageInput.style.border = "none";
+    messageInput.disabled = true;
+    sendMessageContainer.scrollIntoView({
+      behavior: "smooth", // Use smooth scrolling
+    });
+  } catch (error) {
+    console.error("Form submission error", error);
+    const div = document.createElement("div");
+    const h3 = document.createElement("h3");
+    h3.innerHTML = sendMessageContainer.style.display = "block";
+    sendMessageContainer.innerHTML = `
+    <div class="sendMessageSuccess">
+      <div>
+        <h3>Form submission error</h3>
+        <p>Error message: ${error}</p>
+      </div>
+    </div>`;
+
+    sendMessageContainer.scrollIntoView({
+      behavior: "smooth", // Use smooth scrolling
+    });
+  }
+
+  // Additional actions after successful form submission
+}
+
+// Attach event listener to form submission
+if (document.getElementById("contactForm")) {
+  contactForm.addEventListener("submit", validateForm);
 }
 
 // Function to check length of value in form

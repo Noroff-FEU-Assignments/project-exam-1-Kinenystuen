@@ -24,3 +24,6 @@
 .light_green {
     color: var(--green_light);
 }
+.white {
+    color: var(--white);
+}

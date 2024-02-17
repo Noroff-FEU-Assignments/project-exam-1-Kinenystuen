@@ -17,6 +17,7 @@ button, .buttonAll {
     color: var(--black_lighter);
     text-transform: uppercase;
     font-family: "Lato";
+    transition: background-color 0.2s ease;
 }
 button:hover, .buttonAll:hover {
     background-color: var(--green_light);

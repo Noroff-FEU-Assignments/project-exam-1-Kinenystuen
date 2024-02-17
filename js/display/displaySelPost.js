@@ -62,7 +62,6 @@ export async function displaySelProduct(post) {
   });
 
   postImg1.appendChild(img1);
-  //cardDiv.appendChild(caption1);
   postImg1.appendChild(backgroundWrapper);
   selPostHeader.appendChild(postImg1);
   selPostHeader.appendChild(caption1);
@@ -74,8 +73,8 @@ export async function displaySelProduct(post) {
   postsLink.innerText = "Posts page";
   postsLink.className = "fw-light light_green";
   postsLink.title = "Go to all posts page";
-  selPostName.appendChild(postsLink); // Append the postsLink element
-  selPostName.innerHTML += `  /  ${post.title.rendered}`; // Append the title as HTML string
+  selPostName.appendChild(postsLink);
+  selPostName.innerHTML += `  /  ${post.title.rendered}`;
 
   // Create blog title
   const h1Post = document.getElementById("h1Post");

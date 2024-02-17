@@ -20,7 +20,6 @@ export async function displayPosts(posts) {
   posts.forEach((post) => {
     const parser = new DOMParser();
     const doc = parser.parseFromString(post.content.rendered, `text/html`);
-    console.log(doc)
 
     //finds the img url inside the "doc" content.rendered then attributes.src.nodeValue
     const images = doc.querySelectorAll("img");

@@ -42,7 +42,7 @@ export async function displayMatchingPosts(posts) {
     const specificPostTags = specificPost.tags;
 
     const matchingPosts = posts.filter((post) => {
-      return post.tags.some((tag) => specificPostTags.includes(tag));
+        return post.id !== specificPostId && post.tags.some((tag) => specificPostTags.includes(tag));
     });
     if (matchingPosts.length === 0) {
       // Create an error message element

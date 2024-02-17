@@ -67,20 +67,5 @@
 .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 16px;
+    gap: 1rem;
 }
-
-/* CSS for Gallery Image */
-.blogCard-images {
-    width: 100%;
-    height: auto;
-    max-height: calc(var(--vh, 1vh) * 50);
-    cursor: pointer;
-    border-radius: 8px;
-    transition: transform 0.3s ease-in-out;
-}
-
-.blogCard-images:hover {
-    transform: scale(1.02);
-}
-
