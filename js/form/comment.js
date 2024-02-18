@@ -139,7 +139,7 @@ export async function displayComments(comments, postId) {
   }
 
   async function handleSubmit(event) {
-    event.preventDefault(); // Prevent the default form submission behavior
+    event.preventDefault();
 
     // Form elements
     const commentForm = document.getElementById("commentForm");

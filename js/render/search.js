@@ -34,7 +34,7 @@ window.onload = async function () {
   const storedCategoryDetails = JSON.parse(
     localStorage.getItem("categoryDetails")
   );
-  const selectElement = document.getElementById("category"); // the option select
+  const selectElement = document.getElementById("category");
   const storedTagDetails = JSON.parse(localStorage.getItem("tagDetails"));
 
   // searchValue display
@@ -48,7 +48,7 @@ window.onload = async function () {
       await fetchApi(newUrl);
     }, 500); // to be sure that this fetches last
   }
-  
+
   // category display
   if (storedCategoryDetails) {
     const categoryId = storedCategoryDetails.categoryId;

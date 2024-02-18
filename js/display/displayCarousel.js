@@ -32,7 +32,7 @@ export async function displayCarousel(posts) {
 
   function showPosts(posts) {
     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    const latestPosts = posts.slice(0, 8);
+    const latestPosts = posts.slice(0, 8); // take the first 8 posts
     console.log(posts)
     latestPosts.forEach((post) => {
       const parser = new DOMParser();

@@ -70,13 +70,9 @@ if (document.querySelector(".headerContainer")) {
 
 export function scrollIcon() {
   const scrollIcon = document.getElementById("goDownIcon");
-
-  // Function to pulse the icon
   function pulseIcon() {
     scrollIcon.classList.add("pulse");
   }
-
-  // Start pulsing the icon after 3 seconds
   setTimeout(() => {
     pulseIcon();
   }, 3000);

@@ -29,7 +29,6 @@ export async function displayPosts(posts) {
     const paragraphs = doc.querySelectorAll(`p`);
     const paragraph = paragraphs[0].innerHTML;
 
-    /*Create card div*/
     const cardDiv = document.createElement(`a`);
     cardDiv.className = "card";
     cardDiv.href = `/html/blog_post.html?id=${post.id}`
