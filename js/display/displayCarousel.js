@@ -3,7 +3,7 @@ import { clearHTML } from "../render/clearHTML.js";
 
 export async function displayCarousel(posts) {
   const carouselContainer = document.querySelector(".carousel-container");
-  carouselContainer.innerHTML = ""; // Clear existing posts
+  clearHTML(carouselContainer);
   const carousel = document.createElement("div");
   carousel.className = "carousel";
 
@@ -32,7 +32,6 @@ export async function displayCarousel(posts) {
 
   function showPosts(posts) {
     posts.sort((a, b) => new Date(b.date) - new Date(a.date));
-    // Take the first 6 posts
     const latestPosts = posts.slice(0, 8);
     console.log(posts)
     latestPosts.forEach((post) => {

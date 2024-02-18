@@ -63,7 +63,6 @@ export async function displayComments(comments, postId) {
         );
         // Check if the comment has a parent
         if (comment.parent !== 0) {
-          // Find the parent comment element
           const parentCommentDiv = document.getElementById(
             "comment-" + comment.parent
           );
@@ -102,10 +101,6 @@ export async function displayComments(comments, postId) {
             parentCommentDiv.appendChild(replyDiv);
           }
         } else {
-          // author img
-          // const authorImg = document.createElement("img");
-          // authorImg.src = comment.author_avatar_urls['96']; //24, 48, 96
-
           // Create new comment area
           // Create elements for the comment content
           const commentDiv = document.createElement("div");
@@ -134,7 +129,6 @@ export async function displayComments(comments, postId) {
           commentText.innerHTML = comment.content.rendered;
 
           // Append elements to the comment div
-          // commentDiv.appendChild(authorImg);
           commentDiv.appendChild(infoDiv);
           commentDiv.appendChild(commentText);
 
@@ -142,7 +136,6 @@ export async function displayComments(comments, postId) {
         }
       });
     }
-    // console.log(commentDiv);
   }
 
   async function handleSubmit(event) {
@@ -244,9 +237,9 @@ export async function displayComments(comments, postId) {
       checkLength(commentValue, 4) &&
       validateEmail(emailValue)
     ) {
-      name.value = ""; // Clear name input
-      email.value = ""; // Clear email input
-      comment.value = ""; // Clear comment input
+      name.value = ""; 
+      email.value = ""; 
+      comment.value = "";
 
       // Reset error messages and icons
       formFillName.classList.add("hidden_element");

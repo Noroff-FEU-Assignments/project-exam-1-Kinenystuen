@@ -163,7 +163,7 @@ async function submitForm() {
     messageInput.style.border = "none";
     messageInput.disabled = true;
     sendMessageContainer.scrollIntoView({
-      behavior: "smooth", // Use smooth scrolling
+      behavior: "smooth",
     });
   } catch (error) {
     console.error("Form submission error", error);
@@ -179,11 +179,9 @@ async function submitForm() {
     </div>`;
 
     sendMessageContainer.scrollIntoView({
-      behavior: "smooth", // Use smooth scrolling
+      behavior: "smooth",
     });
   }
-
-  // Additional actions after successful form submission
 }
 
 // Attach event listener to form submission

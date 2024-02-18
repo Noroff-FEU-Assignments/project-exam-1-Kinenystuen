@@ -1,4 +1,5 @@
 import { fetchAllPosts } from "../api/fetchAllPosts.js";
+import { clearHTML } from "../render/clearHTML.js";
 
 // Finds the id in the queryString
 const queryString = document.location.search;
@@ -8,7 +9,7 @@ const idSelectedPost = parseInt(params.get("id"));
 export async function displayMatchingPosts(posts) {
   // copied code from displayCarousel with small changes
   const carouselContainer = document.querySelector(".matchingPost-container");
-  carouselContainer.innerHTML = ""; // Clear existing posts
+  clearHTML(carouselContainer);
   const carousel = document.createElement("div");
   carousel.className = "carousel";
 
@@ -48,10 +49,9 @@ export async function displayMatchingPosts(posts) {
       // Create an error message element
       const errorMessage = document.createElement("p");
       errorMessage.textContent = "No matching posts found.";
-      errorMessage.className = "error-message"; // Add a class for styling if needed
+      errorMessage.className = "error-message";
 
-      // Append the error message to a container in the DOM
-      carousel.innerHTML = ""; // Clear existing content
+      clearHTML(carousel);
       carousel.appendChild(errorMessage);
     } else {
       matchingPosts.forEach((post) => {

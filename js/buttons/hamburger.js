@@ -1,4 +1,3 @@
-/* wudhw */
 
 export async function dropdownMenu() {
   const navMenu = document.querySelector(".nav-menu");
