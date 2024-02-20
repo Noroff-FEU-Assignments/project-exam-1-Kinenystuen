@@ -16,7 +16,7 @@ Mountain Life is a blog about an area called Kvitdalen, with blog posts about wh
 - Create specified pages with designated functionalities.
   - Latest post carousel/slider on the homepage
   - Load more button for the posts on the blog posts page
-- Utilize WordPress as a Headless CMS, fetching content via its API.
+- Use WordPress as a Headless CMS, fetching content via its API.
 - Incorporate at least 12 blog posts with meaningful content.
 - Implement validation for form inputs on the Contact page.
 - Deploy the website using GitHub and Netlify.
