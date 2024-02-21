@@ -1,6 +1,6 @@
 
 # Project Exam 1
-<a href="https://mountainlife.netlify.app/"> <img src="https://kineon-portfolio.netlify.app/img/Homepage_MountainLife.png" /></a>
+<a href="https://mountainlife.netlify.app/"> <img src="https://kineon.netlify.app/img/Homepage_MountainLife.png" /></a>
 
 ## About the project
 
