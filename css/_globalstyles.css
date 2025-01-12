@@ -195,6 +195,17 @@ p {
     transform: translate(-50%,-50%);
 }
 
+.errorContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 2rem auto;
+    padding: 1rem;
+    width: 80%;
+    text-align: center;
+}
+
 /* 
     loader div:
     HTML: <div class="loader"></div> 
