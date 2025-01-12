@@ -16,6 +16,17 @@ export async function fetchAllPosts(url) {
     }
     return posts;
   } catch (error) {
+    const errorContainer = document.getElementById("errorContainer");
+    errorContainer.classList.add("errorContainer");
+    errorContainer.innerHTML = "";
+    const icon = document.createElement("i");
+    icon.className = "fa-solid fa-circle-exclamation fa-2x";
+    const errorText = document.createElement("p");
+    errorText.textContent = "No data available.";
+    errorContainer.appendChild(icon);
+    errorContainer.appendChild(errorText);
+
+
     console.error("Error fetching posts:", error);
     return [];
   }
