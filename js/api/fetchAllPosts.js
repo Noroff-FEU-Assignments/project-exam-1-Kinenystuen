@@ -26,7 +26,6 @@ export async function fetchAllPosts(url) {
     errorContainer.appendChild(icon);
     errorContainer.appendChild(errorText);
 
-
     console.error("Error fetching posts:", error);
     return [];
   }
